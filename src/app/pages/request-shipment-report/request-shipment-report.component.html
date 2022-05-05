@@ -1,0 +1,70 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h3 class="head-lead">Shipment report</h3>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="col-lg-12 main-content">
+    <div class="row">
+        <div class="col-lg-3">
+            <label for="">Shipment Date</label>
+            <input type="date" class="form-control" [formControl]="ShipMentDateSearch">
+        </div>
+        <div class="col-lg-3">
+            <label for="">CPR no</label>
+            <input type="search" class="form-control" [formControl]="CPRnoSearch">
+        </div>
+        <div class="col-lg-3">
+            <label for="">Model Code</label>
+            <input type="search" list="model-code-choice" class="form-control" [formControl]="ModelCodeSearch">
+            <datalist id="model-code-choice">
+                <option *ngFor="let item of ModelMasterLists" [value]="item.ModelCode">
+            </datalist>
+        </div>
+        <div class="col-lg-3 ">
+            <button class="btn btn-block text-info mt-4" (click)="onClickExportExcelAll();"><i class="bi bi-file-earmark-spreadsheet"></i> Export </button>
+        </div>
+        <div class="col-lg-12">
+            <button class="btn btn-block text-center" (click)="onSearch()">Search</button>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 main-content mt-2" *ngIf="RequestShipmentLists.length !=0">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Shipment Date</th>
+                        <th>CPR no</th>
+                        <th>Ship Place</th>
+                        <th>Ship To</th>
+                        <th class="text-center">Export</th>
+                        <th class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of RequestShipmentLists; let i=index">
+
+                        <td>{{item.ShipDate | date}}</td>
+                        <td>{{item.CPRno}}</td>
+                        <td>{{item.ShipPlace}}</td>
+                        <td>{{item.ShipTo}}</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm text-success" (click)="onClickExportRowShipment(item);">
+                                <i class="bi bi-file-earmark-spreadsheet"></i>
+                            </button>
+                        </td>
+
+                        <td class="text-center">{{item.Status |shipStatus}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

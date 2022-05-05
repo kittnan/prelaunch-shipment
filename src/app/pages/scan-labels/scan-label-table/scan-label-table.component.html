@@ -1,0 +1,112 @@
+<div class="row  " *ngIf="ResultSearch ">
+    <div class="col-12 main-content mt-5" *ngFor="let shipment of ResultSearch; let indexShipment=index">
+
+        <div class="row ship-box-head">
+            <div class="col-3">
+                <label class="label">Shipment Date: </label>
+                <span class="span"> {{shipment.ShipDate |date}}</span>
+
+            </div>
+            <div class="col-3">
+                <label class="label">CPR no: </label>
+                <span class="span"> {{shipment.CPRno}}</span>
+
+            </div>
+            <div class="col-3">
+                <label class="label">ShipPlace: </label>
+                <span class="span"> {{shipment.ShipPlace}}</span>
+
+            </div>
+            <div class="col-3">
+                <label class="label">ShipTo: </label>
+                <span class="span"> {{shipment.ShipTo}}</span>
+
+            </div>
+            <div class="col-3">
+                <label class="label">Status: </label>
+                <span class="span"> {{shipment.Status |shipStatus}}</span>
+
+            </div>
+
+        </div>
+
+        <div class="row ship-box-table">
+            <div class="col-12">
+                <div class="">
+
+                    <table class="table table-striped">
+                        <thead class="">
+                            <tr>
+                                <th>Boxs</th>
+                                <th>Models</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <tr *ngFor="let box of shipment.boxs; let indexBox=index">
+                                <th width="20%">
+                                    <tr>
+                                        <th>Box no</th>
+                                        <th>Total Qty</th>
+                                        <th>Status Box</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{box.Name}}</td>
+                                        <td>{{box.TotalQty}}</td>
+                                        <td> {{box.Status|boxStatus}}</td>
+                                    </tr>
+                                </th>
+
+                                <td>
+                                    <tr>
+                                        <th width="10%">ModelCode</th>
+                                        <th width="10%">CustomerName</th>
+                                        <th width="15%">CustomerNo</th>
+                                        <th width="20%">PartName</th>
+                                        <th width="5%">Size</th>
+                                        <th width="5%">Qty</th>
+                                        <th width="15%">PatternName</th>
+                                        <th>Status Qty</th>
+                                        <th class="text-center"></th>
+                                    </tr>
+                                    <tr class="hover-tr" *ngFor="let model of box.Models; let indexModel=index">
+                                        <td>{{model.ModelCode}}</td>
+                                        <td>{{model.CustomerName}}</td>
+                                        <td>{{model.CustomerNo}}</td>
+                                        <td>{{model.PartName}}</td>
+                                        <td>{{model.Size}}</td>
+                                        <td>{{model.Qty}}</td>
+                                        <td>{{model.PatternName}}</td>
+                                        <td>
+                                            {{StatusScanModelInBox(shipment,box,model)}}
+
+                                        </td>
+                                        <td>
+                                            <button [disabled]="shipment.Status=='1'" class="btn text-info btn-sm" (click)="onClickScan(box,model);"><i
+                                                class="bi bi-qr-code-scan" style="font-size: 1.3rem;"></i></button>
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+
+                            <!-- <tr *ngFor="let model of box.Models; let indexModel=index">
+                                <td>{{model.ModelCode}}</td>
+                                <td>{{model.CustomerName}}</td>
+                                <td>{{model.CustomerNo}}</td>
+                                <td>{{model.PartName}}</td>
+                                <td>{{model.Size}}</td>
+                                <td>{{model.Qty}}</td>
+                                <td>{{model.PatternName}}</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

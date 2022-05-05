@@ -1,0 +1,55 @@
+.main-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.head-lead {
+    border-bottom: 3px solid black;
+}
+
+.sub-text {
+    padding: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    color: #66615b;
+    line-height: normal;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    box-shadow: none;
+    height: unset;
+    display: block;
+}
+
+.form-control {}
+
+.form-tab-red {
+    border-left: 10px solid red;
+    transition: ease all 1s;
+}
+
+.form-tab-green {
+    border-left: 10px solid rgb(44, 220, 17);
+    transition: ease all 1s;
+}
+
+.form-group label {
+    /* border-bottom: 3px solid black; */
+    margin-bottom: 0;
+}
+
+.menu-box {
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(243, 237, 49);
+    cursor: pointer;
+}
+
+.menu-box :hover {
+    transform: translateY(-20%);
+    /* color: red;
+    background-color: rgb(120, 243, 49); */
+}

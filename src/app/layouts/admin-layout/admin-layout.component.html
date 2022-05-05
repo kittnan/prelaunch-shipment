@@ -1,0 +1,20 @@
+<div class="wrapper" *ngIf="loginStatus">
+    <div class="sidebar" data-color="primary" data-active-color="info">
+        <sidebar-cmp></sidebar-cmp>
+    </div>
+    <div class="main-panel">
+        <navbar-cmp></navbar-cmp>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <footer-cmp></footer-cmp>
+
+    </div>
+</div>
+
+<div class="wrapper" *ngIf="!loginStatus">
+
+    <router-outlet></router-outlet>
+
+</div>
+<fixedplugin-cmp></fixedplugin-cmp>

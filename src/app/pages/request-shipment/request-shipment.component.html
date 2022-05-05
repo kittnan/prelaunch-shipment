@@ -1,0 +1,166 @@
+<div class="col-12 ">
+    <div class="row">
+        <div class="col">
+            <h3 class="head-lead">Request Shipment <button class="btn btn-sm text-warning" (click)="onClickManage();">Manage</button>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row main-content" [formGroup]="ShipmentForm">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Shipment Date</label>
+                <input type="date" class="form-control form-tab-red" [ngClass]="{'form-tab-green': ShipmentFormControl.ShipDate.valid}" formControlName="ShipDate" [min]="MinShipmentDate" (blur)="onChangeShipDateAndCPRno();">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>CPR no.</label>
+                <input type="text" class="form-control form-tab-red" [ngClass]="{'form-tab-green': ShipmentFormControl.CPRno.valid}" formControlName="CPRno" (blur)="onChangeShipDateAndCPRno()">
+            </div>
+        </div>
+
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Ship To</label>
+                <input type="text" class="form-control form-tab-red" [ngClass]="{'form-tab-green': ShipmentFormControl.ShipTo.valid}" formControlName="ShipTo">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>TTL</label>
+                <p class="form-control">{{TTL}}</p>
+            </div>
+        </div>
+        <div class="col-lg-12" *ngIf="MasterShipmentPlace">
+            <div class="form-group">
+                <label>Ship Place</label>
+                <input type="search" list="shipplace-list" class="form-control form-tab-red" [ngClass]="{'form-tab-green': ShipmentFormControl.ShipPlace.valid}" formControlName="ShipPlace">
+                <datalist id="shipplace-list">
+                    <option *ngFor="let item of MasterShipmentPlace.Value; let i=index" [value]="item.Name">
+                        {{item.Name}}</option>
+                </datalist>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="col-lg-6 main-content mt-2" [formGroup]="AddBoxForm">
+        <div class="row ">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="">Box no.</label>
+                    <p type="text" class="form-control">{{AddBoxFormControl.Name.value}}</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="">Total Q'ty on box</label>
+                    <input type="number" class="form-control" min="1" formControlName="TotalQty">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <button [disabled]="AddBoxForm.invalid" class="btn text-success mt-4" (click)="onClickAddBox();">ADD
+                        NEW BOX <i class="bi bi-box-seam"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row main-content mt-2" *ngFor="let box of NewBox; let i=index">
+        <div class="col-lg-12">
+            <h5 class="head-lead">Box no. {{box.Name}} | Total Q'ty on box: {{box.TotalQty}} | Status Q'ty: {{checkTotalQtyNow(box)}}/{{box.TotalQty}}
+                <button class="btn btn-sm text-success" (click)="onClickAddModel(modalModel,i);"><i
+                        class="bi bi-plus-square"></i></button>
+                <!-- <button class="btn btn-sm text-warning"><i class="bi bi-pencil-square"></i></button> -->
+                <button class="btn btn-sm text-danger" (click)="onClickDeleteBox(box,i);"><i
+                        class="bi bi-trash"></i></button>
+            </h5>
+            <table class="table table-striped" *ngIf="box.Models">
+                <thead>
+                    <tr>
+                        <th width="10%">ModelCode</th>
+                        <th width="10%">Q'ty </th>
+                        <th>Size</th>
+                        <th>Customer Name</th>
+                        <th>Customer no.</th>
+                        <th>Part Name</th>
+                        <th>Pattern Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let model of box.Models; let indexModel=index">
+                        <td>{{model.ModelCode}}</td>
+                        <td>{{model.Qty}}</td>
+                        <td>{{model.Size}}</td>
+                        <td>{{model.CustomerName}}</td>
+                        <td>{{model.CustomerNo}}</td>
+                        <td>{{model.PartName}}</td>
+                        <td>{{model.PatternName}}</td>
+                        <td><button class="btn btn-sm text-danger" (click)="onClickDeleteModel(model,indexModel,i);"><i
+                                    class="bi bi-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="row mt-2" *ngIf="NewBox.length > 0">
+        <div class="col-12 text-center">
+            <button [disabled]="ShipmentForm.invalid || NewBox.length==0" (click)="onClickSubmit();" class="btn btn-lg text-primary">SUBMIT <i class="bi bi-check-circle"></i> </button>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #modalModel let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Model Master</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); ">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Model Code</th>
+                                <th>Size</th>
+                                <th>Customer Name</th>
+                                <th>Customer No</th>
+                                <th>Part Name</th>
+                                <th>Pattern QRcode</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ModelMasterLists; let i=index" class="row-hover" (click)="onClickModel(item);">
+                                <td>{{item.ModelCode}}</td>
+                                <td>{{item.Size}}</td>
+                                <td>{{item.CustomerName}}</td>
+                                <td>{{item.CustomerNo}}</td>
+                                <td>{{item.PartName}}</td>
+                                <td>{{item.pattern[0].PatternName}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-warning" (click)="onClickEdit()">
+            <i class="bi bi-check" style="font-size: 1rem;" ></i>
+            Save</button>
+    </div> -->
+</ng-template>

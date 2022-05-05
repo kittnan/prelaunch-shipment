@@ -1,0 +1,74 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h3 class="head-lead">Model Master <button class="btn btn-sm text-warning" (click)="onClickManage();">Manage</button></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="main-content col-lg-8 col-sm-12 mx-auto">
+            <div class="row" [formGroup]="ModelForm">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Model Code</label>
+                        <input type="text" class="form-control form-tab-red" [ngClass]="{'form-tab-green': ModelCode.valid}" formControlName="ModelCode">
+                    </div>
+                </div>
+
+                <div class="col-lg-6" *ngIf="MasterSize">
+                    <div class="form-group">
+                        <label>Size</label>
+                        <input type="search" list="size-list" class="form-control form-tab-red" [ngClass]="{'form-tab-green': Size.valid}" formControlName="Size">
+                        <datalist id="size-list">
+                            <option *ngFor="let item of MasterSize.Value; let i=index" [value]="item.Name">{{item.Name}}
+                            </option>
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-lg-6" *ngIf="MasterCustomer">
+                    <div class="form-group">
+                        <label>Customer Name</label>
+                        <input type="search" list="customer-list" class="form-control form-tab-red" [ngClass]="{'form-tab-green': CustomerName.valid}" formControlName="CustomerName">
+                        <datalist id="customer-list">
+                            <option *ngFor="let item of MasterCustomer.Value; let i=index" [value]="item.Name">
+                                {{item.Name}}</option>
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Customer no.</label>
+                        <input type="text" class="form-control form-tab-red" [ngClass]="{'form-tab-green': CustomerNo.valid}" formControlName="CustomerNo">
+                    </div>
+                </div>
+                <div class="col-lg-6" *ngIf="MasterPartName">
+                    <div class="form-group">
+                        <label>Part Name</label>
+                        <input type="search" list="partname-list" class="form-control form-tab-red" [ngClass]="{'form-tab-green': PartName.valid}" formControlName="PartName">
+                        <datalist id="partname-list">
+                            <option *ngFor="let item of MasterPartName.Value; let i=index" [value]="item.Name">
+                                {{item.Name}}</option>
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-lg-6" *ngIf="MasterPattern">
+                    <div class="form-group">
+                        <label>Pattern Label</label>
+                        <select class="custom-select form-tab-red" [ngClass]="{'form-tab-green': PatternLabelId.valid}" formControlName="PatternLabelId">
+                            <option *ngFor="let item of MasterPattern; let i=index" [value]="item._id">
+                                {{item.PatternName}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 ">
+                    <div class="form-group text-center">
+                        <button class="btn btn-sm btn-block mt-4 text-success" [disabled]="ModelForm.invalid" (click)="onAddModelMaster();"> Add model Master <i class="bi bi-plus"></i> </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

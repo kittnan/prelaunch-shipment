@@ -1,0 +1,55 @@
+.table-box>tr {
+    display: none;
+}
+
+.label {
+    font-size: medium;
+    font-weight: 700;
+    margin-right: 10px;
+    /* padding: 10px; */
+}
+
+.span {
+    font-size: 14px
+}
+
+table,
+tr,
+td {
+    border: none;
+}
+
+.t-head {
+    font-size: larger;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.t-content {
+    font-size: medium;
+}
+
+.ship-head {
+    /* background-color: #af9d43; */
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.19);
+}
+
+.box-body {
+    /* background-color: #fae060; */
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.model {
+    /* background-color: #fff8d8; */
+    /* box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.4); */
+    border-radius: 10px;
+}
+
+.main {
+    background-color: white;
+    /* padding: 20px; */
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}

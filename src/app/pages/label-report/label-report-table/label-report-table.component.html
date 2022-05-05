@@ -1,0 +1,126 @@
+<!-- <p>label-report-table works!</p>
+<p>{{Rows|json}}</p> -->
+
+<!-- <a [href]="test" target="_blank" (click)="onTest()"></a> -->
+
+<div class="row mt-5 " *ngIf="Rows">
+    <div class="col-12">
+
+        <table *ngFor="let row of Rows; let i=index" class="table main mt-5">
+            <tr>
+                <td colspan="6" class="ship-head">
+                    <div class="row">
+                        <div class="col-3">
+
+                            <span class="t-head">CPR no. </span> <span class="t-content">{{row.CPRno}} </span>
+                        </div>
+                        <div class="col-3">
+                            <span class="t-head">Ship Date</span><span class="t-content">{{row.ShipDate |date}}</span>
+
+                        </div>
+                        <div class="col-3">
+
+                            <span class="t-head">Ship Place</span> <span class="t-content">{{row.ShipPlace}}</span>
+                        </div>
+                        <div class="col-3">
+                            <span class="t-head">Ship To</span> <span class="t-content"> {{row.ShipTo}}</span>
+
+                        </div>
+                        <div class="col-3">
+
+                            <span class="t-head"> Status</span> <span class="t-content">{{row.Status |shipStatus}}</span>
+                        </div>
+                        <div class="col-3">
+                            <span class="t-head">User</span><span class="t-content">{{row.User}}</span>
+
+                        </div>
+                        <div class="col-3">
+                            <span class="t-head">Time</span><span class="t-content">{{row.createdAt | date:'medium'}} </span>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td colspan="1"></td>
+                <td colspan="5">
+                    <table *ngFor="let box of row.boxs; let i=index" class="table box-body">
+                        <tr>
+                            <td colspan="5">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <i class="bi bi-arrow-return-right text-primary" style="font-size: 1.4rem;"></i> <span class="label">Box no.</span> <span class="span">{{box.Name}} </span>
+
+                                    </div>
+                                    <div class="col-2">
+                                        <span class="label">Total Q'ty(pcs.)</span> <span class="span">{{box.TotalQty}}</span>
+
+                                    </div>
+                                    <div class="col-2">
+                                        <span class="label">Status</span> <span class="span">{{box.Status |boxStatus}}</span>
+
+                                    </div>
+                                    <div class="col-2">
+                                        <span class="label">Time</span> <span class="span">{{box.createdAt | date
+                                            :'medium'}}</span>
+                                    </div>
+                                    <div class="col-2">
+                                        <button [disabled]="onCheckPrintLabel(row,box)" class="btn btn-sm text-success" (click)="onClickExportLabel(row,box);"><i
+                                                class="bi bi-file-earmark-spreadsheet"
+                                                style="font-size: 1.4rem;">Label</i></button>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="3">
+                                <table *ngFor="let model of box.Models; let i=index" class="table model">
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <i class="bi bi-arrow-return-right text-success" style="font-size: 1.4rem;"></i>
+                                                    <span class="label">Model Code</span> <span class="span">{{model.ModelCode}}</span>
+
+                                                </div>
+                                                <div class="col-2">
+                                                    <span class="label">Customer Name</span> <span class="span">{{model.CustomerName}}</span>
+
+                                                </div>
+                                                <div class="col-2">
+                                                    <span class="label">Customer no.</span> <span class="span">{{model.CustomerNo}}</span>
+
+                                                </div>
+                                                <div class="col-2">
+                                                    <span class="label">Part Name</span> <span class="span">{{model.PartName}}</span>
+
+                                                </div>
+                                                <div class="col-2">
+                                                    <span class="label">Q'ty(pcs.)</span> <span class="span">{{model.Qty}}</span>
+
+                                                </div>
+                                                <div class="col-2">
+                                                    <span class="label">Size</span> <span class="span">{{model.Size}}</span>
+
+
+                                                </div>
+                                            </div>
+                                            <!-- <span class="label">Status</span> <span class="span">{{model.PatternName}}</span> -->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>

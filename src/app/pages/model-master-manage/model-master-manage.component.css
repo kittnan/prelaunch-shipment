@@ -1,0 +1,25 @@
+.main-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.head-lead {
+    border-bottom: 3px solid black;
+}
+
+.form-tab-red {
+    border-left: 10px solid red;
+    transition: ease all 1s;
+}
+
+.form-tab-green {
+    border-left: 10px solid rgb(44, 220, 17);
+    transition: ease all 1s;
+}
+
+.form-group label {
+    /* border-bottom: 3px solid black; */
+    margin-bottom: 0;
+}

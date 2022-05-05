@@ -1,0 +1,42 @@
+.ship-box {
+    background-color: rgba(196, 202, 209, 0.562);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.ship-box-head {
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.22);
+    padding: 10px;
+}
+
+.ship-box-table {
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.11);
+    padding: 10px;
+}
+
+.main-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.label {
+    font-weight: 700;
+    /* font-size: 16px; */
+}
+
+.span {
+    font-weight: 400;
+    /* font-size: 12px; */
+}
+
+.hover-tr {
+    /* background-color: blanchedalmond; */
+}
+
+.hover-tr:hover {
+    background-color: blanchedalmond;
+    font-weight: 700;
+}

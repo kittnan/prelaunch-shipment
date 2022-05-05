@@ -1,0 +1,79 @@
+.head-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.main-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.head-lead {
+    border-bottom: 3px solid black;
+}
+
+.sub-text {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    color: #66615b;
+    line-height: normal;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    box-shadow: none;
+    height: unset;
+    display: block;
+}
+
+.form-tab-normal {
+    border-left: 10px solid rgb(103, 103, 103);
+    transition: ease all 0.25s;
+}
+
+.form-tab-red {
+    border-left: 10px solid red;
+    transition: ease all 0.25s;
+}
+
+.form-tab-green {
+    border-left: 10px solid rgb(44, 220, 17);
+    transition: ease all 0.25s;
+}
+
+.form-group label {
+    /* border-bottom: 3px solid black; */
+    margin-bottom: 0;
+}
+
+.row-hover {
+    transition: all ease 0.25s;
+}
+
+.row-hover:hover {
+    transition: all ease 0.25s;
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.bi-trash {
+    cursor: pointer;
+    transition: ease all 0.25s;
+}
+
+.bi-trash:hover {
+    opacity: 80%;
+    transition: ease all 0.25s;
+}
+
+.table {
+    font-size: 12px;
+}
+
+label {
+    font-weight: 700;
+}

@@ -1,0 +1,109 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h3 class="head-lead"> Model Master Manage</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="main-content col-lg-12 col-sm-12 mx-auto">
+            <!-- <div class="row">
+                <h3 class="head-lead">Manage Model Master</h3>
+            </div> -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Model Code</th>
+                                <th>Size</th>
+                                <th>Customer Name</th>
+                                <th>Customer no.</th>
+                                <th>Part Name</th>
+                                <th>Pattern Label</th>
+                                <th>Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ModelMaster; let i=index">
+                                <td>{{item.ModelCode}}</td>
+                                <td>{{item.Size}}</td>
+                                <td>{{item.CustomerName}}</td>
+                                <td>{{item.CustomerNo}}</td>
+                                <td>{{item.PartName}}</td>
+                                <td>{{item.PatternName}}</td>
+                                <td>
+
+                                    <button [disabled]="item.modelUse.length>0" class="btn btn-sm text-warning" (click)="openModalEdit(modelMasterEdit,item)"><i class="bi bi-pencil-square"></i></button>
+                                    <button [disabled]="item.modelUse.length>0" class="btn btn-sm ml-1 text-danger" (click)="onClickDelete(item)"><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #modelMasterEdit let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Edit: Model Master</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); ">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" [formGroup]="ModelForm">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Model Code</label>
+                            <input type="text" formControlName="ModelCode" class="form-control form-tab-red" [ngClass]="{'form-tab-green': ModelCode.valid}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Size</label>
+                            <input type="text" formControlName="Size" class="form-control form-tab-red" [ngClass]="{'form-tab-green': Size.valid}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Customer Name</label>
+                            <input type="text" formControlName="CustomerName" class="form-control form-tab-red" [ngClass]="{'form-tab-green': CustomerName.valid}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Customer No</label>
+                            <input type="text" formControlName="CustomerNo" class="form-control form-tab-red" [ngClass]="{'form-tab-green': CustomerNo.valid}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Part Name</label>
+                            <input type="text" formControlName="PartName" class="form-control form-tab-red" [ngClass]="{'form-tab-green': PartName.valid}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Pattern Label</label>
+                            <select class="custom-select form-tab-red" formControlName="PatternLabelId" [ngClass]="{'form-tab-green': PatternLabelId.valid}">
+                                <option *ngFor="let item of PatternMaster; let i=index" [value]="item._id">{{item.PatternName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button [disabled]="ModelForm.untouched || ModelForm.invalid" type="button" class="btn btn-warning" (click)="onClickEdit2()">
+            <i class="bi bi-check" style="font-size: 1rem;" ></i>
+            Save</button>
+    </div>
+</ng-template>

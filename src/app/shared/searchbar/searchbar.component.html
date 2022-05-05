@@ -1,0 +1,20 @@
+<div class="row main-content" [formGroup]="SearchForm">
+    <div class="col-lg-4">
+        <label for="">Model Code</label>
+        <input type="search" list="model-code-choice" class="form-control" formControlName="ModelCode">
+        <datalist id="model-code-choice">
+            <option *ngFor="let item of ModelMasterLists" [value]="item.ModelCode">
+        </datalist>
+    </div>
+    <div class="col-lg-4">
+        <label for="">Shipment Date</label>
+        <input type="date" class="form-control" formControlName="ShipMentDate">
+    </div>
+    <div class="col-lg-4">
+        <label for="">CPR no</label>
+        <input type="search" class="form-control" formControlName="CPRno">
+    </div>
+    <div class="col-lg-12">
+        <button class="btn btn-block text-center" (click)="onClickSearch()">Search</button>
+    </div>
+</div>

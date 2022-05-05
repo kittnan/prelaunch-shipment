@@ -1,0 +1,53 @@
+/* .loading {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(180, 180, 180, 0.938);
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    animation: fade 0.25s linear 0.25s infinite alternate;
+}
+
+@keyframes fade {
+    0% {
+        background-color: rgba(180, 180, 180, 0.938);
+    }
+    100% {
+        background-color: rgba(136, 136, 136, 0.938);
+    }
+} */
+
+.box-load {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 800;
+}
+
+.loading {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #0CB1C4;
+    animation-name: spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

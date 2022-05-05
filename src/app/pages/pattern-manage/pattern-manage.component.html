@@ -1,0 +1,172 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h3 class="head-lead">Pattern Manage</h3>
+        </div>
+    </div>
+
+    <div class="row main-content">
+        <div class="col-lg-6">
+            <label for="">Pattern</label>
+            <!-- <input type="search" class="form-control" list="master-pattern-list" [formControl]="PatternInput" (change)="onChangeMasterPattern();">
+                    <datalist id="master-pattern-list">
+                        <option *ngFor="let item of MasterPatternList; let i=index" [value]="item.PatternName">
+                            {{item.PatternName}}</option>
+                    </datalist> -->
+            <select class="custom-select" [formControl]="PatternId" (change)="onChangeMasterPattern(); manageToggle('show')">
+                <option value=""></option>
+                <option *ngFor="let item of MasterPatternList; let i=index" [value]="item._id">{{item.PatternName}}
+                </option>
+            </select>
+        </div>
+        <div class="col-lg-6">
+            <label for="" class="label-custom">Manage</label>
+            <button class="btn btn-sm text-success  " (click)="manageToggle('add') ;onClickButtonAddPattern(); ">Add
+                pattern <i class="bi bi-plus"></i></button>
+            <button [disabled]="PatternId.invalid || patternUse " class="btn btn-sm text-warning ml-2 " (click)="manageToggle('edit'); onClickMasterEditPattern(); ">edit pattern <i
+                    class="bi bi-pencil-square"></i></button>
+            <button [disabled]="PatternId.invalid || patternUse" class="btn btn-sm text-danger ml-2" (click)="onClickMasterDeletePattern();">Delete <i
+                    class="bi bi-trash"></i></button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 mt-2 main-content" *ngIf="toggleShowPattern">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <label for="">Pattern : {{PatternName.value}} | Summary digit: {{summaryDigit}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 ">
+
+                    <div class="row">
+                        <div class="col-3 mb-4" *ngFor="let item of Pattern; let i=index">
+                            <div class="row">
+                                <div class="col-8">
+                                    <label for="">Name</label>
+                                    <input disabled type="search" class="form-control" placeholder="your pattern" list="pattern-guide" (change)="onChangePatternName($event , i)" [value]="item.Name">
+                                    <datalist id="pattern-guide">
+                                        <option *ngFor="let item of patternGuide; let i=index" [value]="item">{{item.Name}}</option>
+                                    </datalist>
+
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Digit</label>
+                                    <input disabled type="number" class="form-control" (change)="onChangeDigitList($event , i)" [min]="0" [value]="item.Digit">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="col-lg-12 mt-2 main-content" *ngIf="toggleAddPattern">
+    <div class="row">
+        <div class="col-lg-12 ">
+            <label for="">New Pattern Name | Summary digit: {{summaryDigit}}</label>
+            <input type="text" class="form-control" [formControl]="PatternName">
+            <button class="btn btn-sm  text-success" (click)="onAddPatternList()">ADD list pattern</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center mx-auto">
+            <div class="row">
+                <div class="col-4 mb-4" *ngFor="let item of Pattern; let i=index">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="search" class="form-control" placeholder="your pattern" list="pattern-guide" (change)="onChangePatternName($event , i)" [value]="item.Name">
+                            <datalist id="pattern-guide">
+                                <option *ngFor="let item of patternGuide; let i=index" [value]="item">{{item}}</option>
+                            </datalist>
+
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" (change)="onChangeDigitList($event , i)" [min]="0" [value]="item.Digit">
+                        </div>
+                        <div class="col-2 text-left">
+                            <span> <i class="bi bi-x-lg icon-x" (click)="onDeletePatternList(i)"></i></span>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row" *ngIf="Pattern.length!=0">
+                <div class="col-lg-12 text-center">
+                    <button [disabled]="PatternName.invalid" class="btn btn-sm text-success" (click)="onSubmit();">SUBMIT new pattern</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="col-lg-12 mt-2 main-content" *ngIf="toggleEditPattern">
+    <div class="row">
+        <div class="col-lg-12 ">
+            <label for="">Edit Pattern Name</label>
+            <input type="text" class="form-control" [formControl]="PatternName">
+            <button class="btn btn-sm text-success" (click)="onAddPatternList()">ADD list pattern</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="row">
+                <div class="col-3 mb-4" *ngFor="let item of Pattern; let i=index">
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="search" class="form-control" placeholder="your pattern" list="pattern-guide" (change)="onChangePatternName($event , i)" [value]="item.Name">
+                            <datalist id="pattern-guide">
+                                <option *ngFor="let item of patternGuide; let i=index" [value]="item">{{item}}</option>
+                            </datalist>
+
+                        </div>
+                        <div class="col-3">
+                            <input type="number" class="form-control" (change)="onChangeDigitList($event , i)" [min]="0" [value]="item.Digit">
+                        </div>
+                        <div class="col-1">
+                            <span> <i class="bi bi-x-lg icon-x" (click)="onDeletePatternList(i)"></i></span>
+
+                        </div>
+                    </div>
+                    <!-- <button class="btn btn-sm btn-block">PATTERN</button> -->
+
+                </div>
+            </div>
+
+            <!-- <div class="row ">
+                <div class="col-3" *ngFor="let item of PatternList; let i=index">
+                    <input type="search" class="form-input" placeholder="your pattern" list="pattern-guide" (change)="onChangePatternList($event , i)" [value]="item">
+                    <span> <i class="bi bi-x-lg icon-x" (click)="onDeletePatternList(i)"></i></span>
+                    <datalist id="pattern-guide">
+                        <option *ngFor="let item of patternGuide; let i=index" [value]="item">{{item}}</option>
+                    </datalist>
+                </div>
+            </div> -->
+
+            <div class="row" *ngIf="Pattern.length!=0">
+                <div class="col-lg-12 text-center">
+                    <button [disabled]="PatternName.invalid" class="btn btn-sm text-success" (click)="onSubmit();">SUBMIT edit pattern</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

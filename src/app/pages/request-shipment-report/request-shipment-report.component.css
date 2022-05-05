@@ -1,0 +1,59 @@
+.main-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.card-content {
+    background-color: white;
+    /* padding: 10px; */
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.form-tab-normal {
+    border-left: 10px solid rgb(103, 103, 103);
+    transition: ease all 0.25s;
+}
+
+.form-tab-red {
+    border-left: 10px solid red;
+    transition: ease all 0.25s;
+}
+
+.form-tab-green {
+    border-left: 10px solid rgb(44, 220, 17);
+    transition: ease all 0.25s;
+}
+
+.bi-trash {
+    cursor: pointer;
+    transition: ease all 0.25s;
+}
+
+.bi-trash:hover {
+    opacity: 80%;
+    transition: ease all 0.25s;
+}
+
+.form-group {
+    /* border: 1px solid black; */
+    padding: 10px;
+    /* border-radius: 10px; */
+    /* background-color: rgba(230, 230, 230, 0.707); */
+    /* box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px; */
+}
+
+.form-group label {
+    font-weight: 900;
+}
+
+.card-box {
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.head-lead {
+    border-bottom: 3px solid black;
+}

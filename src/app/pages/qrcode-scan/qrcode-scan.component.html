@@ -1,0 +1,120 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h3 class="head-lead">Scan Qr Code Labels</h3>
+        </div>
+    </div>
+
+    <div class="row main-content" *ngIf="MapResult">
+        <div class="col-12 ">
+            <h4 class="ship-head">Shipment Detail</h4>
+        </div>
+        <div class="col-2">
+            <label class="label">ShipDate</label>
+            <p>{{MapResult.ShipDate | date}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">CPR no.</label>
+            <p>{{MapResult.ShipCPRno }}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">ShipPlace</label>
+            <p>{{MapResult.ShipPlace }}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">ShipTo</label>
+            <p>{{MapResult.ShipTo }}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">ShipStatus</label>
+            <p>{{MapResult.ShipStatus |shipStatus }}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">User</label>
+            <p>{{MapResult.User }}</p>
+        </div>
+
+    </div>
+
+    <div class="row main-content mt-2" *ngIf="MapResult">
+        <div class="col-12">
+
+            <h4 class="ship-head">Box Detail</h4>
+        </div>
+        <div class="col-2">
+            <label class="label">BoxName</label>
+            <p>{{MapResult.BoxName}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">BoxTotalQty</label>
+            <p>{{MapResult.BoxTotalQty}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">BoxStatus</label>
+            <p>{{MapResult.BoxStatus |boxStatus}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">ModelCode</label>
+            <p>{{MapResult.ModelCode}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">CustomerName</label>
+            <p>{{MapResult.CustomerName}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">CustomerNo</label>
+            <p>{{MapResult.CustomerNo}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">PartName</label>
+            <p>{{MapResult.PartName}}</p>
+        </div>
+        <div class="col-2">
+            <label class="label">PatternName</label>
+            <p>{{MapResult.PatternName}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row main-content" *ngIf="MapResult">
+        <div class="col-6 text-center">
+            <label class="label">LAST-> Label</label>
+            <p>{{LastLabel()}}</p>
+        </div>
+        <div class="col-2 text-center">
+            <label class="label">LAST-> LOT</label>
+            <p>{{LastLot()}}</p>
+        </div>
+        <div class="col-2 text-center">
+            <label class="label">LAST-> SERIAL</label>
+            <p>{{LastSerial()}}</p>
+        </div>
+        <div class="col-2 text-center">
+            <label class="label">LAST-> TIME</label>
+            <p>{{LastTime() | date:'medium'}}</p>
+        </div>
+    </div>
+
+    <div class="row mt-2 main-content">
+        <div class="col-2 text-center">
+            <button class="btn text-primary" (click)="scanInput.focus()"><i class="bi bi-play" style="font-size: 2rem;" >scan</i> </button>
+        </div>
+        <div class="col-9 my-auto text-center">
+            <form action="">
+                <input type="text" id="scanInput" class="form-control scan-box" [class]="scanInputColor" #scanInput (keydown)="onScan($event);" [formControl]="SubmitForm" placeholder="focus here">
+            </form>
+        </div>
+        <div class="col-1 my-auto text-center">
+            <button class="btn text-danger" (click)="SubmitForm.reset(); scanInput.focus();"><i class="bi bi-x-lg" style="font-size: 1.4rem;"></i></button>
+        </div>
+    </div>
+
+    <app-qrcode-scan-table [data]="MapResult" (DeleteHistory)="CallAPI();">
+
+    </app-qrcode-scan-table>
+
+
+
+
+</div>

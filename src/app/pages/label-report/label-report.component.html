@@ -1,0 +1,73 @@
+<!-- <app-loading [load]="load" *ngIf="load"></app-loading> -->
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h3 class="head-lead">Search Boxs</h3>
+        </div>
+    </div>
+    <!-- <div class="row main-content" [formGroup]="SearchForm">
+        <div class="col-lg-4">
+            <label for="">Shipment Date</label>
+            <input type="date" class="form-control" formControlName="ShipmentDate">
+        </div>
+        <div class="col-lg-4">
+            <label for="">CPRno.</label>
+            <input type="search" class="form-control" formControlName="CPRno">
+        </div>
+        <div class="col-lg-4">
+            <label for="">Model Code</label>
+            <input type="search" class="form-control" list="model-master-list" formControlName="ModelCode">
+        </div>
+        <datalist id="model-master-list">
+            <option *ngFor="let item of ModelMasterAll; let i=index" [value]="item.ModelCode">{{item.ModelCode}}
+            </option>
+        </datalist>
+        <div class="col-lg-12">
+            <button class="btn btn-sm btn-block text-primary" (click)="onClickSearch()">Search <i
+                    class="bi bi-search"></i></button>
+        </div>
+    </div> -->
+    <app-searchbar (newItemEvent)="onSearch($event)"></app-searchbar>
+    <app-label-report-table [Rows]="ResultSearch"></app-label-report-table>
+
+    <!-- <td>
+        <button class="btn btn-sm text-info" (click)="onClickRowLabel(item);">
+            <i class="bi bi-qr-code"></i>
+        </button>
+    </td>
+
+      onClickRowLabel(item) {
+    this.labelExport.exportLabel(item)
+  }
+
+     -->
+    <!-- <div class="row main-content mt-2" *ngIf="ResultSearch">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th>CPRno.</th>
+                        <th>Model Code</th>
+                        <th>Q'ty</th>
+                        <th>Status</th>
+                        <th>Scan</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of ResultSearch; let i=index">
+                        <td>{{item.CPRno}}</td>
+                        <td>{{item.ModelCode}}</td>
+                        <td>{{item.Qty}}</td>
+                        <td>{{item.Status}}</td>
+                        <td>
+                            <button class="btn text-info btn-sm" (click)="onClickGenerateLabel(item);"><i
+                                    class="bi bi-qr-code-scan" style="font-size: 1.3rem;"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  
+</div> -->

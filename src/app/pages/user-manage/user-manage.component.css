@@ -1,0 +1,44 @@
+.main-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.table tbody tr {
+    transition: ease all 0.25s;
+    cursor: pointer;
+}
+
+.table tbody tr:hover {
+    transition: ease all 0.25s;
+    background-color: lightgray;
+}
+
+.head-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.head-lead {
+    border-bottom: 3px solid black;
+}
+
+.form-label {
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.icon-valid {
+    margin-left: 10px;
+}
+
+.bi-backspace {
+    color: red;
+}
+
+.bi-check2 {
+    color: green;
+}

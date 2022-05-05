@@ -1,0 +1,63 @@
+.main-content {
+    background-color: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 25%);
+}
+
+.head-lead {
+    border-bottom: 3px solid black;
+}
+
+.label {
+    font-weight: 700;
+    font-size: larger;
+}
+
+p {
+    font-size: larger
+}
+
+.scan-box {
+    font-size: xx-large
+}
+
+.ship-head {
+    border-bottom: 1px solid red;
+    font-size: 30px;
+}
+
+.b-r {
+    margin-top: 10px;
+    /* border-right: 1px solid red; */
+    border-left: 2px solid red;
+    border-radius: 5px;
+}
+
+.scanInputColor,
+.scanInputColor-red,
+.scanInputColor-green {
+    background-color: white;
+    /* width: 10vh; */
+    height: 8vh;
+    /* width: 100%; */
+    transition: ease all 0.5s;
+}
+
+.scanInputColor:focus {
+    background-color: rgb(184, 238, 159);
+    /* width: 90%; */
+    transition: ease all 0.5s;
+}
+
+.scanInputColor-red {
+    background-color: red;
+}
+
+.scanInputColor-green {
+    background-color: rgb(51, 255, 0);
+}
+
+input {
+    caret-color: green;
+}
