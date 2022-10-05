@@ -151,6 +151,9 @@ export class ApiService {
   deleteHistoryAllByBoxId(boxId: any): Observable<any> {
     return this.http.delete(this.Url + "/ScanHistory/BoxId/all/" + boxId)
   }
+  getCountScanHistoriesModelInBoxId(id: any): Observable<any> {
+    return this.http.get(this.Url + "/ScanHistory/ModelInBoxId/" + id)
+  }
 
   // * user
   insertUser(data: any): Observable<any> {
@@ -178,8 +181,8 @@ export class ApiService {
   }
 
   // * check duplicate in data base
-  checkDuplicateInDatabase(data:any):Observable<any>{
-    return this.http.post(this.Url + "/ScanHistory/search",data)
+  checkDuplicateInDatabase(data: any): Observable<any> {
+    return this.http.post(this.Url + "/ScanHistory/search", data)
   }
 
 }

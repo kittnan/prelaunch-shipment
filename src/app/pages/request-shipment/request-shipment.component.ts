@@ -69,7 +69,6 @@ export class RequestShipmentComponent implements OnInit {
       const masterAll = await this.getMasterAll()
       this.MasterShipmentPlace = await this.setShipmentPlaceMaster(masterAll)
       this.ModelMasterLists = await this.getModelMaster()
-      // console.log(this.ModelMasterLists);
 
     } catch (error) {
       alert(error)

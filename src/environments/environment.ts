@@ -5,8 +5,8 @@
 
 export const environment = {
   production: false,
-  // UrlApi:"http://localhost:4023",
-  UrlApi:"http://10.200.90.152:4023",
+  UrlApi:"http://localhost:4023",
+  // UrlApi:"http://10.200.90.152:4023",
   PATHLOGO:"assets/img/1200px-Kyocera_logo.png"
   // UrlApi:"http://10.200.90.152:4018",
 };

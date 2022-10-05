@@ -298,12 +298,6 @@ export class QrcodeScanComponent implements OnInit {
 
   splitLot(textNow, indexPattern, value, patterns) {
     const firstSplit = value.split(textNow)[1]
-    console.log('textNow',textNow);
-    console.log('indexPattern',indexPattern);
-    console.log('value',value);
-    console.log('patterns',patterns);
-    console.log(firstSplit.substring(0, patterns[indexPattern ].Digit) );
-    
     let newValue
     if (patterns[indexPattern + 1].Digit == 1) {
       firstSplit ? newValue = firstSplit.split(patterns[indexPattern + 1].Name)[0] : false

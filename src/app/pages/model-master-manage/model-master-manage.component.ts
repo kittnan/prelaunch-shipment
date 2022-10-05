@@ -52,9 +52,10 @@ export class ModelMasterManageComponent implements OnInit {
 
     const models = await this.getModelMaster();
     this.PatternMaster = await this.getPatternLabelAll();
-    this.ModelMaster = await this.setPatterName(models, this.PatternMaster)
+    this.ModelMaster = await this.setPatternName(models, this.PatternMaster)
 
   }
+
 
   getModelMaster() {
     return new Promise((resolve) => {
@@ -70,6 +71,8 @@ export class ModelMasterManageComponent implements OnInit {
       })
     })
   }
+
+
   getBox() {
     return new Promise(resolve => {
       this.api.getBoxsAll().subscribe((response: any) => {
@@ -78,7 +81,7 @@ export class ModelMasterManageComponent implements OnInit {
     })
   }
 
-  setPatterName(models, patterns) {
+  setPatternName(models, patterns) {
     return new Promise((resolve) => {
       models.map((model: any) => {
         const temp = patterns.find(i => i._id == model.PatternLabelId)
@@ -90,25 +93,50 @@ export class ModelMasterManageComponent implements OnInit {
     })
   }
 
-  openModalEdit(content, item) {
-    this.ModelForm.reset();
+  async openModalEdit(content, item) {
+    const modelStatus = await this.checkModelStatus(item.modelUse);
+    if (modelStatus) {
+      this.ModelForm.reset();
+      this._id.setValue(item._id)
+      this.ModelCode.setValue(item.ModelCode)
+      this.Size.setValue(item.Size)
+      this.CustomerName.setValue(item.CustomerName)
+      this.CustomerNo.setValue(item.CustomerNo)
+      this.PartName.setValue(item.PartName)
+      this.PatternLabelId.setValue(item.PatternLabelId)
+      this.modal.open(content, { size: 'lg' })
+    } else {
+      Swal.fire({
+        title: 'Model is using!',
+        icon: 'warning',
+      })
+    }
 
-    this._id.setValue(item._id)
-    this.ModelCode.setValue(item.ModelCode)
-    this.Size.setValue(item.Size)
-    this.CustomerName.setValue(item.CustomerName)
-    this.CustomerNo.setValue(item.CustomerNo)
-    this.PartName.setValue(item.PartName)
-    this.PatternLabelId.setValue(item.PatternLabelId)
 
-    this.modal.open(content, { size: 'lg' })
+  }
+
+  async checkModelStatus(modelUse: any) {
+    for (let index = 0; index < modelUse.length; index++) {
+      return await this.checkModelStatus2(modelUse[index].Models)
+    }
+  }
+
+  async checkModelStatus2(models: any) {
+    for (let index = 0; index < models.length; index++) {
+      return await this.checkModelStatus3(models[index])
+    }
+  }
+  async checkModelStatus3(model: any) {
+    const count = await this.api.getCountScanHistoriesModelInBoxId(model._id).toPromise();
+    if (count[0] && count[0].scanHistoryRecord !== model.Qty) return false
+    return true
   }
 
   async onClickEdit2() {
     let result: any = await this.updateModelMaster();
     if (result.modifiedCount == 1) {
       const models = await this.getModelMaster();
-      this.ModelMaster = await this.setPatterName(models, this.PatternMaster)
+      this.ModelMaster = await this.setPatternName(models, this.PatternMaster)
       this.alertSwal.alert('success', 'Success')
 
       this.modal.dismissAll()
@@ -161,7 +189,7 @@ export class ModelMasterManageComponent implements OnInit {
             this.alertSwal.alert('success', 'Success')
 
           }
-        }else{
+        } else {
           this.alertSwal.alert('error', 'Model is using')
         }
 

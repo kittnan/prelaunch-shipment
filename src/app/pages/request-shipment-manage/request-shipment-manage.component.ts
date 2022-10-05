@@ -220,7 +220,6 @@ export class RequestShipmentManageComponent implements OnInit {
   async openModalView(content, item) {
     try {
       this.ModalView = item
-      // console.log(item);
 
       this.modal.open(content, { size: 'xl', scrollable: true })
     } catch (error) {
@@ -325,7 +324,6 @@ export class RequestShipmentManageComponent implements OnInit {
 
   // todo modal edit -> click edit model
   onOpenModalEditModel(content, model, indexModel, box, indexBox) {
-    console.log(box);
     const totalQtyBox = box.TotalQty
     const totalHaveInModels = box.Models ? box.Models.reduce((prev, now) => {
       return prev + Number(now.Qty)

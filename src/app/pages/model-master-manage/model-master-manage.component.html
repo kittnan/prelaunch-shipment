@@ -33,7 +33,7 @@
                                 <td>{{item.PatternName}}</td>
                                 <td>
 
-                                    <button [disabled]="item.modelUse.length>0" class="btn btn-sm text-warning" (click)="openModalEdit(modelMasterEdit,item)"><i class="bi bi-pencil-square"></i></button>
+                                    <button class="btn btn-sm text-warning" (click)="openModalEdit(modelMasterEdit,item)"><i class="bi bi-pencil-square"></i></button>
                                     <button [disabled]="item.modelUse.length>0" class="btn btn-sm ml-1 text-danger" (click)="onClickDelete(item)"><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
