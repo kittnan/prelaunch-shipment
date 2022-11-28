@@ -45,7 +45,7 @@ export const routesAdmin: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     constructor(
-        
+
     ){
 
     }
@@ -119,13 +119,13 @@ export class SidebarComponent implements OnInit {
                 } else
                     if (authority == "admin") {
                         temp = [
-                            // { path: '/request-shipment', title: 'Request shipment', icon: 'bi-clipboard', class: '' },
-                            // { path: '/scan-labels', title: 'Scan labels', icon: 'bi bi-qr-code-scan', class: '' },
-                            // { path: '/request-shipment-report', title: 'Shipment report', icon: 'bi bi-file-earmark-spreadsheet', class: '' },
+                            { path: '/request-shipment', title: 'Request shipment', icon: 'bi-clipboard', class: '' },
+                            { path: '/scan-labels', title: 'Scan labels', icon: 'bi bi-qr-code-scan', class: '' },
+                            { path: '/request-shipment-report', title: 'Shipment report', icon: 'bi bi-file-earmark-spreadsheet', class: '' },
+                            { path: '/label-report', title: 'Label report', icon: 'bi bi-card-heading', class: '' },
+                            { path: '/model-master', title: 'Model master', icon: 'bi bi-card-list', class: '' },
                             { path: '/master-manage', title: 'Master manage', icon: 'bi bi-layers', class: '' },
                             { path: '/pattern-manage', title: 'Pattern manage', icon: 'bi bi-terminal-split', class: '' },
-                            { path: '/model-master', title: 'Model master', icon: 'bi bi-card-list', class: '' },
-                            // { path: '/label-report', title: 'Label report', icon: 'bi bi-card-heading', class: '' },
                             { path: '/user-manage', title: 'User manage', icon: 'bi bi bi-people', class: '' },
                             { path: '/change-password-protect-sheet', title: 'Password sheet', icon: 'bi bi-key-fill', class: '' },
 

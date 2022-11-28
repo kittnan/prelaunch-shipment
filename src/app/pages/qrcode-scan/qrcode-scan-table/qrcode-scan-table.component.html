@@ -7,7 +7,7 @@
                     <th>Lot</th>
                     <th>Serial</th>
                     <th>Time</th>
-                    <th><button class="btn btn-sm text-danger" (click)="onClickClearAll(data.ScanHistories);">Clear all</button></th>
+                    <th *ngIf="edit"><button class="btn btn-sm text-danger" (click)="onClickClearAll(data.ScanHistories);">Clear all</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -16,7 +16,7 @@
                     <td>{{item.Lot}}</td>
                     <td>{{item.Serial}}</td>
                     <td>{{item.createdAt | date:'medium'}}</td>
-                    <td><button class="btn btn-sm text-danger" (click)="onClickDeleteHistory(item);"> <i class="bi bi-trash"></i></button></td>
+                    <td *ngIf="edit"><button class="btn btn-sm text-danger" (click)="onClickDeleteHistory(item);"> <i class="bi bi-trash"></i></button></td>
                 </tr>
             </tbody>
         </table>

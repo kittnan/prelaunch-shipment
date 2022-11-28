@@ -16,15 +16,16 @@ export class AuthGuardService {
   ) {
     this.admin = [
       '/change-password-protect-sheet',
-      // '/label-report',
+      '/label-report',
       '/user-manage',
-      // '/qrcode-scan',
-      // '/scan-labels',
+      '/qrcode-scan',
+      '/qrcode-scan-view',
+      '/scan-labels',
       '/pattern-manage',
       '/master-manage',
-      // '/request-shipment-report',
-      // '/request-shipment-manage',
-      // '/request-shipment',
+      '/request-shipment-report',
+      '/request-shipment-manage',
+      '/request-shipment',
       '/model-master-manage',
       '/model-master',
     ]
@@ -37,6 +38,7 @@ export class AuthGuardService {
     this.scanner = [
       '/scan-labels',
       '/qrcode-scan',
+      '/qrcode-scan-view',
       '/label-report',
     ]
   }

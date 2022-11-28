@@ -13,6 +13,7 @@ export class QrcodeScanTableComponent implements OnInit {
 
   @Input() data: any
   @Output() DeleteHistory = new EventEmitter<string>()
+  @Input() edit = true;
   constructor(
     private api: ApiService,
     private alertSwal: AlertServiceService
@@ -49,7 +50,7 @@ export class QrcodeScanTableComponent implements OnInit {
       })
     })
   }
-  
+
   onClickClearAll(items) {
     Swal.fire({
       title: 'Do you have delete all history ?',

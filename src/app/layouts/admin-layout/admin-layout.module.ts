@@ -26,6 +26,7 @@ import { BoxStatusPipe } from 'app/pipe/box-status.pipe';
 import { ShipStatusPipe } from 'app/pipe/ship-status.pipe';
 import { ReversePipe } from 'app/pipe/reverse.pipe';
 import { LoadingComponent } from 'app/pages/loading/loading.component';
+import { QrcodeScanViewComponent } from 'app/pages/qrcode-scan-view/qrcode-scan-view.component';
 
 
 
@@ -56,6 +57,7 @@ import { LoadingComponent } from 'app/pages/loading/loading.component';
     QrcodeScanComponent,
     QrcodeScanTableComponent,
     ChangePasswordProtectSheetComponent,
+    QrcodeScanViewComponent,
 
     BoxStatusPipe,
     ShipStatusPipe,

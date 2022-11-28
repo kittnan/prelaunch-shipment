@@ -83,22 +83,17 @@
 
                                         </td>
                                         <td>
-                                            <button [disabled]="shipment.Status=='1'" class="btn text-info btn-sm" (click)="onClickScan(box,model);"><i
-                                                class="bi bi-qr-code-scan" style="font-size: 1.3rem;"></i></button>
+                                            <button class="btn text-warning btn-sm mr-2" (click)="onClickView(box,model);">
+                      <i class="bi bi-search" style="font-size: 1.3rem;"></i>
+                    </button>
+                                            <button [disabled]="shipment.Status=='1'" class="btn text-info btn-sm" (click)="onClickScan(box,model);"><i class="bi bi-qr-code-scan"
+                        style="font-size: 1.3rem;"></i></button>
                                         </td>
                                     </tr>
                                 </td>
                             </tr>
 
-                            <!-- <tr *ngFor="let model of box.Models; let indexModel=index">
-                                <td>{{model.ModelCode}}</td>
-                                <td>{{model.CustomerName}}</td>
-                                <td>{{model.CustomerNo}}</td>
-                                <td>{{model.PartName}}</td>
-                                <td>{{model.Size}}</td>
-                                <td>{{model.Qty}}</td>
-                                <td>{{model.PatternName}}</td>
-                            </tr> -->
+
                         </tbody>
                     </table>
                 </div>

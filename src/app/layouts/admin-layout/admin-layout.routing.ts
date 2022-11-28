@@ -5,6 +5,7 @@ import { MasterManageComponent } from 'app/pages/master-manage/master-manage.com
 import { ModelMasterManageComponent } from 'app/pages/model-master-manage/model-master-manage.component';
 import { ModelMasterComponent } from 'app/pages/model-master/model-master.component';
 import { PatternManageComponent } from 'app/pages/pattern-manage/pattern-manage.component';
+import { QrcodeScanViewComponent } from 'app/pages/qrcode-scan-view/qrcode-scan-view.component';
 import { QrcodeScanComponent } from 'app/pages/qrcode-scan/qrcode-scan.component';
 import { RequestShipmentManageComponent } from 'app/pages/request-shipment-manage/request-shipment-manage.component';
 import { RequestShipmentReportComponent } from 'app/pages/request-shipment-report/request-shipment-report.component';
@@ -27,6 +28,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'scan-labels', component: ScanLabelsComponent },
     // { path: 'scan-labels-qrcode', component: ScanLabelsQrcodeComponent },
     { path: 'qrcode-scan', component: QrcodeScanComponent },
+    { path: 'qrcode-scan-view', component: QrcodeScanViewComponent },
     { path: 'user-manage', component: UserManageComponent },
     { path: 'label-report', component: LabelReportComponent },
     { path: 'change-password-protect-sheet', component: ChangePasswordProtectSheetComponent },
