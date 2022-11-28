@@ -186,9 +186,7 @@ export class RequestShipmentManageComponent implements OnInit {
     try {
       const result = await this.search(data)
       const newResultMap = await this.serviceMap.mapData(result)
-
       this.RequestShipmentLists = newResultMap
-
     } catch (error) {
       alert(error)
     } finally{
@@ -199,7 +197,7 @@ export class RequestShipmentManageComponent implements OnInit {
 
 
   }
-  search(data) {
+  search(data:any) {
     return new Promise((resolve) => {
       this.api.searchShipmentAndLookup(data).subscribe((data: any) => {
         if (data.length != 0) {
@@ -210,6 +208,10 @@ export class RequestShipmentManageComponent implements OnInit {
           resolve(data)
         } else {
           this.RequestShipmentLists = []
+          Swal.fire('No Result','','warning')
+          setTimeout(() => {
+            this.load = false
+          }, 500);
         }
       })
     })

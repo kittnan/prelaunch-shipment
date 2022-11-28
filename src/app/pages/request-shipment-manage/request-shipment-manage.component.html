@@ -12,8 +12,8 @@
             <label for="">Model Code</label>
             <input type="search" list="model-code-choice" class="form-control" [formControl]="ModelCodeSearch">
             <datalist id="model-code-choice">
-                <option *ngFor="let item of ModelMasterLists" [value]="item.ModelCode">
-            </datalist>
+        <option *ngFor="let item of ModelMasterLists" [value]="item.ModelCode">
+      </datalist>
         </div>
         <div class="col-lg-4">
             <label for="">Shipment Date</label>
@@ -61,9 +61,8 @@
                         <td>{{item.Status | shipStatus}}</td>
                         <td width="20%" class="text-center">
                             <button class="btn btn-sm text-primary" (click)="openModalView(modalViewRequest,item)"><i
-                                    class="bi bi-search"></i></button>
-                            <button [disabled]="item.scanhistories.length >0" class="btn btn-sm ml-1 text-warning" (click)="openModalEdit(modalEditRequest,item)"><i
-                                    class="bi bi-pencil-square"></i></button>
+                  class="bi bi-search"></i></button>
+                            <button [disabled]="item.scanhistories.length >0" class="btn btn-sm ml-1 text-warning" (click)="openModalEdit(modalEditRequest,item)"><i class="bi bi-pencil-square"></i></button>
                             <button [disabled]="item.scanhistories.length >0" class="btn btn-sm ml-1 text-danger" (click)="onClickDeleteShipment(item, i)"><i class="bi bi-trash"></i></button>
                         </td>
                     </tr>
@@ -75,12 +74,13 @@
 
 
 
+
 <ng-template #modalEditRequest let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Edit: Request Shipment</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); ">
-            <span aria-hidden="true">&times;</span>
-        </button>
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
         <div class="row fill-bg">
@@ -105,9 +105,9 @@
                             <label>Ship Place</label>
                             <input type="search" class="form-control" formControlName="ShipPlace" list="ship-place">
                             <datalist id="ship-place">
-                                <option *ngFor="let item of MasterShipmentPlace.Value; let i=index" [value]="item.Name">
-                                    {{item.Name}}</option>
-                            </datalist>
+                <option *ngFor="let item of MasterShipmentPlace.Value; let i=index" [value]="item.Name">
+                  {{item.Name}}</option>
+              </datalist>
                         </div>
                     </div>
 
@@ -133,9 +133,11 @@
         <hr>
         <div class="row fill-bg mt-5">
             <div class="col-lg-12" *ngFor="let box of ModalEdit; let indexBox=index">
-                <h5 class="head-lead">Box no. {{box.Name}} | Total Q'ty on box: {{box.TotalQty}} | Status Q'ty: {{setQty(box)}} <button (click)="onClickEditBox(modalEditBox,box);" class="btn btn-sm text-warning"><i class="bi bi-pencil-square"></i></button>
+                <h5 class="head-lead">Box no. {{box.Name}} | Total Q'ty on box: {{box.TotalQty}} | Status Q'ty: {{setQty(box)}}
+                    <button (click)="onClickEditBox(modalEditBox,box);" class="btn btn-sm text-warning"><i
+              class="bi bi-pencil-square"></i></button>
                     <button (click)="onClickAddNewModel(modalAddNewModel,box);" class="btn btn-sm text-success"><i
-                            class="bi bi-plus-square"></i></button>
+              class="bi bi-plus-square"></i></button>
                 </h5>
                 <table class="table table-striped" *ngIf="box.Models">
                     <thead>
@@ -161,11 +163,11 @@
                             <td>{{model.PatternName}}</td>
                             <td>
                                 <button (click)="onOpenModalEditModel(modalEditModel,model,indexModel ,box,indexBox);" class="btn btn-sm text-info">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
+                  <i class="bi bi-pencil-square"></i>
+                </button>
                                 <button (click)="onDeleteModel(box,indexModel);" class="btn btn-sm text-danger ml-2">
-                                    <i class="bi bi-trash"></i>
-                                </button>
+                  <i class="bi bi-trash"></i>
+                </button>
                         </tr>
                     </tbody>
                 </table>
@@ -186,8 +188,8 @@
     <div class="modal-header">
         <h4 class="modal-title">Edit Box</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); ">
-            <span aria-hidden="true">&times;</span>
-        </button>
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
         <div class="row" [formGroup]="ModalEditDetailBoxForm">
@@ -210,8 +212,8 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-warning" (click)="onSubmitEditBox()">
-            <i class="bi bi-check" style="font-size: 1rem;"></i>
-            Save</button>
+      <i class="bi bi-check" style="font-size: 1rem;"></i>
+      Save</button>
     </div>
 </ng-template>
 
@@ -219,8 +221,8 @@
     <div class="modal-header">
         <h4 class="modal-title">Edit Model</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); ">
-            <span aria-hidden="true">&times;</span>
-        </button>
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
         <div class="row">
@@ -231,9 +233,9 @@
             <div class="col-6">
                 <label for="">Model</label>
                 <select class="custom-select" [formControl]="ModalEditModelFormControl.ModelCode" #selectEditModal (change)="onChangeModel(selectEditModal.value);">
-                    <option [value]="item.ModelCode" *ngFor="let item of ModelMasterLists; let i=index">
-                        {{item.ModelCode}}</option>
-                </select>
+          <option [value]="item.ModelCode" *ngFor="let item of ModelMasterLists; let i=index">
+            {{item.ModelCode}}</option>
+        </select>
             </div>
         </div>
 
@@ -269,8 +271,8 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-warning" (click)="onSubmitEditModel();">
-            <i class="bi bi-check" style="font-size: 1rem;"></i>
-            Save</button>
+      <i class="bi bi-check" style="font-size: 1rem;"></i>
+      Save</button>
     </div>
 </ng-template>
 
@@ -278,8 +280,8 @@
     <div class="modal-header">
         <h4 class="modal-title">Add New Model</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); ">
-            <span aria-hidden="true">&times;</span>
-        </button>
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
         <div class="row">
@@ -290,9 +292,9 @@
             <div class="col-6">
                 <label for="">Model</label>
                 <select class="custom-select" [formControl]="ModalAddNewModelFormControl.ModelCode" #selectAddNewModal (change)="onChangeModelInAddNewModel(selectAddNewModal.value);">
-                    <option [value]="item.ModelCode" *ngFor="let item of ModelMasterLists; let i=index">
-                        {{item.ModelCode}}</option>
-                </select>
+          <option [value]="item.ModelCode" *ngFor="let item of ModelMasterLists; let i=index">
+            {{item.ModelCode}}</option>
+        </select>
             </div>
         </div>
 
@@ -328,8 +330,8 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-success" (click)="onSubmitAddNewModel();">
-            <i class="bi bi-check" style="font-size: 1rem;"></i>
-            Add</button>
+      <i class="bi bi-check" style="font-size: 1rem;"></i>
+      Add</button>
     </div>
 </ng-template>
 
@@ -340,8 +342,8 @@
     <div class="modal-header">
         <h4 class="modal-title">View: Request Shipment</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click'); ">
-            <span aria-hidden="true">&times;</span>
-        </button>
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
         <div class="row fill-bg">
@@ -374,7 +376,8 @@
             <hr>
 
             <div class="col-lg-12" *ngFor="let box of ModalView.boxs; let i=index">
-                <h5 class="head-lead">Box no: {{box.Name}} | Total Q'ty on box: {{box.TotalQty}} | Status Q'ty: {{setQty(box)}} </h5>
+                <h5 class="head-lead">Box no: {{box.Name}} | Total Q'ty on box: {{box.TotalQty}} | Status Q'ty: {{setQty(box)}}
+                </h5>
                 <table class="table table-striped" *ngIf="box.Models">
                     <thead>
                         <tr>
@@ -406,7 +409,7 @@
     </div>
     <div class="modal-footer">
         <button [disabled]="ModalView.Status=='1'" type="button" class="btn btn-block btn-success" (click)=" onSubmitRequestShipment(); ">
-            <i class="bi bi-check " style="font-size: 1rem; "></i>
-            SUBMIT</button>
+      <i class="bi bi-check " style="font-size: 1rem; "></i>
+      SUBMIT</button>
     </div>
 </ng-template>

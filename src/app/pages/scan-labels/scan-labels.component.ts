@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
+import Swal from 'sweetalert2';
 import { AlertServiceService } from '../service/alert-service.service';
 import { AuthGuardService } from '../service/auth-guard.service';
 import { MapDataService } from '../service/map-data.service';
@@ -92,6 +93,9 @@ export class ScanLabelsComponent implements OnInit {
     try {
       this.load = true
       this.ResultSearch = await this.map.mapData(e)
+      if(this.ResultSearch.length==0){
+        Swal.fire('No Result','','warning')
+      }
     } catch (error) {
       alert(error)
     }finally{

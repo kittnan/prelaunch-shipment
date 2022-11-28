@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ApiService } from 'app/api.service';
+import Swal from 'sweetalert2';
 import { AuthGuardService } from '../service/auth-guard.service';
 import { GenerateShipmentReportService } from '../service/generate-shipment-report.service';
 
@@ -64,13 +65,14 @@ export class RequestShipmentReportComponent implements OnInit {
     }
     const result = await this.search(data)
     this.RequestShipmentLists = result
+
     setTimeout(() => {
       this.load = false
     }, 500);
 
   }
 
-  search(data:any) {
+  search(data: any) {
     this.load = true;
 
     return new Promise((resolve) => {
@@ -79,6 +81,13 @@ export class RequestShipmentReportComponent implements OnInit {
           resolve(data)
         } else {
           this.RequestShipmentLists = []
+          setTimeout(() => {
+            this.load = false
+          }, 500);
+          if (this.RequestShipmentLists.length == 0) {
+            Swal.fire('No Result', '', 'warning')
+
+          }
         }
       })
     })
