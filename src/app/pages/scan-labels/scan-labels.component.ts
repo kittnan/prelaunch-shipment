@@ -40,12 +40,10 @@ export class ScanLabelsComponent implements OnInit {
   // CheckboxStatus: boolean = false
   load :boolean = false
   async ngOnInit(): Promise<void> {
-    this.load = true
     this.auth.CheckAuth()
     this.RequestShipmentAll = await this.getRequestShipment()
     this.ModelMasterAll = await this.getModelMaster();
     this.PatternAll = await this.getPatternAll();
-    this.load = false
   }
 
 
@@ -57,14 +55,7 @@ export class ScanLabelsComponent implements OnInit {
       })
     })
   }
-  // getBoxs(body) {
-  //   return new Promise((resolve) => {
 
-  //     this.api.getBoxs(body).subscribe((data: any) => {
-  //       resolve(data)
-  //     })
-  //   })
-  // }
   getModelMaster() {
     return new Promise((resolve) => {
       this.api.getModelMasters().subscribe((data: any) => {
@@ -94,78 +85,23 @@ export class ScanLabelsComponent implements OnInit {
 
 
 
+  clickEmit(e:any){
+    this.load = e
+  }
+  async onSearch(e:any) {
+    try {
+      this.load = true
+      this.ResultSearch = await this.map.mapData(e)
+    } catch (error) {
+      alert(error)
+    }finally{
+      setTimeout(() => {
+        this.load = false
+      }, 500);
+    }
 
-  async onSearch(e) {
-    this.ResultSearch = await this.map.mapData(e)
-    
   }
 
-
-  // async onClickSearch() {
-  //   this.load = true
-
-  //   const con = {
-  //     ModelCode: this.SearchForm.get('ModelCode').value,
-  //     ShipDate: this.SearchForm.get('ShipmentDate').value,
-  //     CPRno: this.SearchForm.get('CPRno').value,
-  //   }
-  //   if (this.SearchForm.get('ShipmentDate').invalid) {
-  //     delete con.ShipDate
-  //   }
-
-  //   if (this.SearchForm.get('ModelCode').invalid) {
-  //     delete con.ModelCode
-  //   }
-
-  //   if (this.SearchForm.get('CPRno').invalid) {
-  //     delete con.CPRno
-  //   }
-  //   const resultSearchBoxs = await this.searchBoxs(con)
-  //   this.ResultSearch = resultSearchBoxs
-  //   this.load = false
-
-  // }
-
-
-
-
-  // onClickScan(item) {
-
-  //   if (item._id) {
-  //     this.alertSwal.alert('success', 'Success')
-
-  //     localStorage.setItem("BoxId", item._id)
-  //     this.route.navigate(['/scan-labels-qrcode'])
-      
-  //     // location.href = "#/scan-labels-qrcode"
-  //   } else {
-  //     this.alertSwal.alert('error', 'Please select box')
-
-  //   }
-  // }
-
-
-
-  // findRequestShipment(box) {
-  //   return new Promise((resolve) => {
-  //     const temp: any = this.RequestShipmentAll.find((i) => {
-  //       if (
-  //         i.ShipDate == box.ShipmentDate &&
-  //         i.CPRno == box.CPRno
-  //       ) {
-  //         return i
-  //       }
-
-  //     })
-  //     resolve(temp)
-  //   })
-  // }
-  // findPatternLabels(shipment) {
-  //   return new Promise((resolve) => {
-  //     const temp: any = this.PatternAll.find(i => i._id == shipment.PatternLabelId)
-  //     resolve(temp)
-  //   })
-  // }
 
 
 }

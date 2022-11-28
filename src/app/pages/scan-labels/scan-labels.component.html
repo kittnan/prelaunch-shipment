@@ -1,13 +1,15 @@
-<!-- <app-loading [load]="load" *ngIf="load">
-</app-loading> -->
-
 <div class="col-12">
     <div class="row">
         <div class="col">
             <h3 class="head-lead">Scan Labels</h3>
         </div>
     </div>
-    <app-searchbar (newItemEvent)="onSearch($event)"></app-searchbar>
+    <app-searchbar (newItemEvent)="onSearch($event)" (clickChange)="clickEmit($event)"></app-searchbar>
+    <div *ngIf="load" class="loading">
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+    </div>
     <app-scan-label-table [ResultSearch]="ResultSearch"></app-scan-label-table>
 
 </div>

@@ -23,6 +23,8 @@ export class RequestShipmentManageComponent implements OnInit {
     private auth: AuthGuardService
   ) { }
 
+  load = false
+
   ModelCodeSearch = new FormControl(null)
   ShipMentDateSearch = new FormControl(null)
   CPRnoSearch = new FormControl(null)
@@ -175,6 +177,7 @@ export class RequestShipmentManageComponent implements OnInit {
   }
 
   async onSearch() {
+    this.load = true;
     const data = {
       ModelCode: this.ModelCodeSearch.value || '',
       ShipMentDate: this.ShipMentDateSearch.value || '',
@@ -188,6 +191,10 @@ export class RequestShipmentManageComponent implements OnInit {
 
     } catch (error) {
       alert(error)
+    } finally{
+      setTimeout(() => {
+        this.load = false
+      }, 500);
     }
 
 
@@ -386,7 +393,7 @@ export class RequestShipmentManageComponent implements OnInit {
     })
   }
 
-  // todo modal edit -> click delete model 
+  // todo modal edit -> click delete model
   onDeleteModel(box, indexModel) {
     Swal.fire({
       title: 'Do you want to delete ?',
@@ -495,7 +502,7 @@ export class RequestShipmentManageComponent implements OnInit {
 
 
   setQty(box) {
-    
+
     const sum = box.Models.reduce((prev, now) => {
       return prev + Number(now.Qty)
     }, 0)

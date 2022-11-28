@@ -10,7 +10,7 @@ import { MapDataService } from '../service/map-data.service';
 })
 export class LabelReportComponent implements OnInit {
 
-  load :boolean= false
+  load = false
   constructor(
     private map: MapDataService,
     private auth: AuthGuardService,
@@ -22,28 +22,27 @@ export class LabelReportComponent implements OnInit {
     ModelCode: new FormControl(null, Validators.required)
   })
 
-
-  // ModelMasterAll: any
-  // ResultSearch: any
-
   ResultSearch: any
 
-
-
-
   async ngOnInit(): Promise<void> {
-    this.load = true
     this.auth.CheckAuth()
-    this.load = false
+  }
+
+  clickEmit(e:any){
+    this.load = e
   }
 
 
-  async onSearch(e) {
+  async onSearch(e:any) {
     try {
+      this.load = true
       this.ResultSearch = await this.map.mapData(e)
-      
     } catch (error) {
       alert(error)
+    }finally{
+      setTimeout(() => {
+        this.load = false
+      }, 500);
     }
 
   }

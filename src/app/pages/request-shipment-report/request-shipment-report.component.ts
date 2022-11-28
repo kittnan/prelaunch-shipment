@@ -18,6 +18,8 @@ export class RequestShipmentReportComponent implements OnInit {
     private auth: AuthGuardService
   ) { }
 
+  load = false
+
   ModelCodeSearch = new FormControl(null)
   ShipMentDateSearch = new FormControl(null)
   CPRnoSearch = new FormControl(null)
@@ -61,17 +63,19 @@ export class RequestShipmentReportComponent implements OnInit {
       CPRno: this.CPRnoSearch.value || ''
     }
     const result = await this.search(data)
-
     this.RequestShipmentLists = result
-
+    setTimeout(() => {
+      this.load = false
+    }, 500);
 
   }
 
-  search(data) {
+  search(data:any) {
+    this.load = true;
+
     return new Promise((resolve) => {
       this.api.searchShipmentAndLookup(data).subscribe((data: any) => {
         if (data.length != 0) {
-         
           resolve(data)
         } else {
           this.RequestShipmentLists = []

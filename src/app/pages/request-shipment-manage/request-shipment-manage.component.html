@@ -29,6 +29,14 @@
     </div>
 </div>
 
+<div *ngIf="load" class="loading">
+    <div class="div"></div>
+    <div class="div"></div>
+    <div class="div"></div>
+</div>
+
+
+
 <div class="col-lg-12 main-content mt-2" *ngIf="RequestShipmentLists.length !=0">
     <div class="row">
         <div class="col-lg-12">

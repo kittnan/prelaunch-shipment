@@ -22,6 +22,7 @@ export class SearchbarComponent implements OnInit {
   ModelMasterLists: any
 
   @Output() newItemEvent = new EventEmitter();
+  @Output() clickChange = new EventEmitter();
 
   constructor(
     private api: ApiService,
@@ -39,6 +40,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   onClickSearch() {
+    this.clickChange.emit(true)
     this.api.searchShipmentAndLookup(this.SearchForm.value).toPromise().then(async res => {
       this.newItemEvent.emit(res)
     })
