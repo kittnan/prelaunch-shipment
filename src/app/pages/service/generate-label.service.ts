@@ -45,7 +45,6 @@ export class GenerateLabelService {
   }
 
   async makeExcelReport(data) {
-    //                                           (data);
 
     try {
       // todo create workbook and add worksheet
@@ -64,7 +63,6 @@ export class GenerateLabelService {
         extension: 'png',
       });
 
-      //                                           (mockCells);
       await this.setLayoutOnOneModel(worksheet, mockCells, data)
       this.createWorkBookOnOneModel(workbook, worksheet, data)
 
@@ -163,10 +161,15 @@ export class GenerateLabelService {
               row.height = 50
               cell.value = ''
             } else
-              if (cell.value == 'r5' || cell.value == 'r6' || cell.value == 'r7' || cell.value == 'r8') {
-                row.height = 30
+              if (cell.value == 'r5') {
+                row.height = 50
                 cell.value = ''
               }
+              else
+                if (cell.value == 'r6' || cell.value == 'r7' || cell.value == 'r8') {
+                  row.height = 30
+                  cell.value = ''
+                }
 
 
           if (cell.value == 'from') {
@@ -217,7 +220,7 @@ export class GenerateLabelService {
           }
 
 
-          // * Qr Code 
+          // * Qr Code
           if (cell.value == 'qrcode') {
             cell.value = ""
             worksheet.addImage(this.QrCode, `J${rowNumber}:J${rowNumber}`);
@@ -399,7 +402,7 @@ export class GenerateLabelService {
       let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
       let title = `${rawData.CPRno}-${this.setFormatDateShipment(rawData.ShipDate)}-Boxno${rawData.BoxName}`
       fs.saveAs(blob, title);
-      
+
 
     })
   }
@@ -417,7 +420,6 @@ export class GenerateLabelService {
 
   // ! export multi model in box ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
   async onMultiModel(rawData) {
-    //                                           ('onMultiModel ', rawData);
 
     try {
       // todo create workbook and add worksheet
@@ -728,7 +730,7 @@ export class GenerateLabelService {
     })
   }
 
-  async createWorkBookOnMultiModel(workbook, worksheet: WorkSheet,rawData) {
+  async createWorkBookOnMultiModel(workbook, worksheet: WorkSheet, rawData) {
     await worksheet.protect(this.ProtectSheetLabel.Password, {});
     workbook.xlsx.writeBuffer().then((data) => {
       let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
