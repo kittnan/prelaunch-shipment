@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
+import { environment } from 'environments/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -56,8 +57,11 @@ export class LoginComponent implements OnInit {
           timerProgressBar: true,
           showConfirmButton: false
         })
+        localStorage.setItem('PLS_version', environment.VERSION)
         Toast.fire('Login success', '', 'success').then(() => {
-          this.route.navigate([url])
+          this.route.navigate([url]).then((v: any) => {
+            window.location.reload()
+          })
           // location.href = url
         })
       }

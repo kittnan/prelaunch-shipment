@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HandleVersionService } from './handle-version.service';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent{}
+export class AppComponent {
+  constructor(
+    private $handleVersion: HandleVersionService
+  ) {
+
+  }
+  ngOnInit(): void {
+    this.$handleVersion.start()
+  }
+}

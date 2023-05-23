@@ -5,6 +5,7 @@ import * as logo from './logo.js'
 import * as QRCode from 'qrcode'
 import { WorkSheet } from 'xlsx';
 import { ProtectSheetService } from './protect-sheet.service.js';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -20,16 +21,27 @@ export class GenerateLabelService {
   ) { }
 
 
-  async exportLabel(rawData) {
-    //                                           (rawData.ModelInBox.length);
-    const resultProtectSheet: any = await this.protectSheet.ProtectSheet()
-    this.ProtectSheetLabel = resultProtectSheet.find(m => m.Name == 'Password-Label')
+  exportLabel(rawData) {
+    Swal.fire({
+      title: 'Downloading...',
+      allowEscapeKey: false,
+      allowOutsideClick: false,
+      didOpen(popup) {
+        Swal.showLoading()
+      },
+    })
 
-    if (rawData.ModelInBox.length === 1) {
-      this.onOneModel(rawData)
-    } else {
-      this.onMultiModel(rawData)
-    }
+    setTimeout(async () => {
+      const resultProtectSheet: any = await this.protectSheet.ProtectSheet()
+      this.ProtectSheetLabel = resultProtectSheet.find(m => m.Name == 'Password-Label')
+
+      if (rawData.ModelInBox.length === 1) {
+        this.onOneModel(rawData)
+      } else {
+        this.onMultiModel(rawData)
+      }
+    }, 200);
+
   }
 
 
@@ -403,6 +415,14 @@ export class GenerateLabelService {
       let title = `${rawData.CPRno}-${this.setFormatDateShipment(rawData.ShipDate)}-Boxno${rawData.BoxName}`
       fs.saveAs(blob, title);
 
+      setTimeout(() => {
+        Swal.fire({
+          title: 'Downloaded!!',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }, 1000);
 
     })
   }
@@ -738,6 +758,14 @@ export class GenerateLabelService {
 
       // let title = `label-box-${new Date().toLocaleDateString()}`
       fs.saveAs(blob, title);
+      setTimeout(() => {
+        Swal.fire({
+          title: 'Downloaded!!',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }, 1000);
     })
   }
 
