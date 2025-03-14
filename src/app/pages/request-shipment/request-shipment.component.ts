@@ -49,6 +49,7 @@ export class RequestShipmentComponent implements OnInit {
   // * master
   MasterShipmentPlace: any;
   ModelMasterLists: any
+  ModelMasterListsRead: readonly any[] = []
 
   // * Date
   MinShipmentDate: any
@@ -62,6 +63,8 @@ export class RequestShipmentComponent implements OnInit {
   // * TTL
   TTL: any = 'AUTO'
 
+  inputFilterKey: any = ''
+
   async ngOnInit(): Promise<void> {
     this.auth.CheckAuth()
     try {
@@ -69,7 +72,7 @@ export class RequestShipmentComponent implements OnInit {
       const masterAll = await this.getMasterAll()
       this.MasterShipmentPlace = await this.setShipmentPlaceMaster(masterAll)
       this.ModelMasterLists = await this.getModelMaster()
-
+      this.ModelMasterListsRead = this.ModelMasterLists
     } catch (error) {
       alert(error)
     }
@@ -134,7 +137,7 @@ export class RequestShipmentComponent implements OnInit {
   }
 
 
-  // todo add new model 
+  // todo add new model
   onClickAddModel(content, indexBox) {
     this.tempIndexNewBox = indexBox
 
@@ -381,5 +384,17 @@ export class RequestShipmentComponent implements OnInit {
       }, 0)
       total ? resolve(total) : reject('error onCountTTL')
     })
+  }
+
+
+  onFilterModel() {
+    console.log(this.inputFilterKey);
+    console.log(this.ModelMasterLists);
+    if (this.inputFilterKey) {
+      const key = this.inputFilterKey.trim().toLowerCase()
+      this.ModelMasterListsRead = this.ModelMasterLists.filter((model: any) => model.ModelCode.toLowerCase().includes(key))
+    } else {
+      this.ModelMasterListsRead = this.ModelMasterLists
+    }
   }
 }
