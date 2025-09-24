@@ -62,8 +62,9 @@ export class QrcodeScanComponent implements OnInit {
 
   async onScan(event: any) {
     const keyCode = event.keyCode
-    try {
 
+    try {
+      
       await this.checkSpace()
       await this.checkKeyTab(keyCode)
       await this.checkValidValue(this.SubmitForm.value)
@@ -73,6 +74,8 @@ export class QrcodeScanComponent implements OnInit {
       // const scanHistory: any = await this.checkHistoryScan(localStorage.getItem('BoxId'))
       // const patternUse: any = await this.findPatternUse(this.MergeData.PatternLabelId)
       const objReturn: any = await this.splitLabel(this.MapResult.PatternUse.Value, this.SubmitForm.value)
+
+
       const setData = {
         ModelInBoxId: this.MapResult.ModelInBoxID,
         Label: this.SubmitForm.value,
@@ -185,15 +188,15 @@ export class QrcodeScanComponent implements OnInit {
       let serial: string = ""
       patterns.map((pattern, index) => {
         if (pattern.Digit === 1) {
-          wordPrev += pattern.Name
+          wordPrev += pattern.Name.trim()
         } else {
 
           // todo  check key of object mergeData if have follow pattern Name
           if (this.MapResult[pattern.Name]) {
             if (
-              this.MapResult[pattern.Name].length == pattern.Digit
+              this.MapResult[pattern.Name].trim().length == pattern.Digit
             ) {
-              wordPrev += this.MapResult[pattern.Name]
+              wordPrev += this.MapResult[pattern.Name].trim()
             } else {
               reject('Digit incorrect')
             }
@@ -203,9 +206,8 @@ export class QrcodeScanComponent implements OnInit {
 
             if (pattern.Name.toLowerCase().includes('lot')) {
               lot = this.splitLot(wordPrev, index, value, patterns)
-              
               if (lot != undefined) {
-                if (patterns[index].Digit == lot.length) {
+                if (patterns[index].Digit == lot.trim().length) {
                   wordPrev += lot
                 } else {
                   reject('Lot digit incorrect')
@@ -297,6 +299,8 @@ export class QrcodeScanComponent implements OnInit {
 
 
   splitLot(textNow, indexPattern, value, patterns) {
+
+
     const firstSplit = value.split(textNow)[1]
     let newValue
     if (patterns[indexPattern + 1].Digit == 1) {
