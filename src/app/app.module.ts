@@ -30,7 +30,8 @@ import { LoginComponent } from "./pages/login/login.component";
   imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes, {
-      useHash: true
+      useHash: true,
+      relativeLinkResolution: 'legacy'
     }),
     SidebarModule,
     NavbarModule,

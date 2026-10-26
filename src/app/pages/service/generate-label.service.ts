@@ -4,7 +4,7 @@ import * as fs from 'file-saver'
 import * as logo from './logo.js'
 import * as QRCode from 'qrcode'
 import { WorkSheet } from 'xlsx';
-import { ProtectSheetService } from './protect-sheet.service.js';
+import { ProtectSheetService } from './protect-sheet.service';
 import Swal from 'sweetalert2';
 
 @Injectable({
