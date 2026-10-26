@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RequestShipmentReportComponent } from './request-shipment-report.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ShipStatusPipe } from 'app/pipe/ship-status.pipe';
 
 describe('RequestShipmentReportComponent', () => {
   let component: RequestShipmentReportComponent;
@@ -8,7 +13,8 @@ describe('RequestShipmentReportComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RequestShipmentReportComponent ]
+      imports: [ HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule, NgbModule ],
+      declarations: [ RequestShipmentReportComponent, ShipStatusPipe ]
     })
     .compileComponents();
   });

@@ -90,7 +90,7 @@
                         ],
                         "styles": [
                             "src/styles.css",
-                            "src/assets/sass/paper-dashboard.scss",
+                            "src/assets/scss/paper-dashboard.scss",
                             "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
 
                         ],

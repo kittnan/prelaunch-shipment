@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { HandleVersionService } from './handle-version.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HandleVersionService', () => {
   let service: HandleVersionService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [ RouterTestingModule ]
+    });
     service = TestBed.inject(HandleVersionService);
   });
 
