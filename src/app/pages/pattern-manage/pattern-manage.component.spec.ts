@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PatternManageComponent } from './pattern-manage.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('PatternManageComponent', () => {
   let component: PatternManageComponent;
@@ -12,8 +13,9 @@ describe('PatternManageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule, NgbModule ],
-      declarations: [ PatternManageComponent ]
+      declarations: [PatternManageComponent],
+      imports: [RouterTestingModule, FormsModule, ReactiveFormsModule, NgbModule],
+      providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
     })
     .compileComponents();
   });

@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdminLayoutComponent } from './admin-layout.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FixedPluginModule } from 'app/shared/fixedplugin/fixedplugin.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AdminLayoutComponent', () => {
   let component: AdminLayoutComponent;
@@ -13,8 +14,9 @@ describe('AdminLayoutComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule, NgbModule, FixedPluginModule ],
-      declarations: [ AdminLayoutComponent ]
+      declarations: [AdminLayoutComponent],
+      imports: [RouterTestingModule, FormsModule, ReactiveFormsModule, NgbModule, FixedPluginModule],
+      providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
     })
     .compileComponents();
   }));
