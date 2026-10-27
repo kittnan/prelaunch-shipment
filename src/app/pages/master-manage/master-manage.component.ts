@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2';
@@ -23,10 +23,10 @@ export class MasterManageComponent implements OnInit {
 
   MastersAll: any
   Lists: any
-  Search = new FormControl(null, Validators.required)
+  Search = new UntypedFormControl(null, Validators.required)
 
   MasterName: any;
-  Name = new FormControl(null, Validators.required)
+  Name = new UntypedFormControl(null, Validators.required)
   indexValue: any
 
 

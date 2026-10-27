@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2'
@@ -21,14 +21,14 @@ export class ModelMasterManageComponent implements OnInit {
     private auth: AuthGuardService,
   ) { }
 
-  ModelForm = new FormGroup({
-    _id: new FormControl(null, Validators.required),
-    ModelCode: new FormControl(null, Validators.required),
-    Size: new FormControl(null, Validators.required),
-    CustomerName: new FormControl(null, Validators.required),
-    CustomerNo: new FormControl(null, Validators.required),
-    PartName: new FormControl(null, Validators.required),
-    PatternLabelId: new FormControl(null, Validators.required),
+  ModelForm = new UntypedFormGroup({
+    _id: new UntypedFormControl(null, Validators.required),
+    ModelCode: new UntypedFormControl(null, Validators.required),
+    Size: new UntypedFormControl(null, Validators.required),
+    CustomerName: new UntypedFormControl(null, Validators.required),
+    CustomerNo: new UntypedFormControl(null, Validators.required),
+    PartName: new UntypedFormControl(null, Validators.required),
+    PatternLabelId: new UntypedFormControl(null, Validators.required),
 
   })
   get _id() { return this.ModelForm.get('_id') }

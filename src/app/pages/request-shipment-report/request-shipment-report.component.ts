@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2';
 import { AuthGuardService } from '../service/auth-guard.service';
@@ -21,9 +21,9 @@ export class RequestShipmentReportComponent implements OnInit {
 
   load = false
 
-  ModelCodeSearch = new FormControl(null)
-  ShipMentDateSearch = new FormControl(null)
-  CPRnoSearch = new FormControl(null)
+  ModelCodeSearch = new UntypedFormControl(null)
+  ShipMentDateSearch = new UntypedFormControl(null)
+  CPRnoSearch = new UntypedFormControl(null)
 
   ModelMasterLists: any;
   RequestShipmentLists: any = [];

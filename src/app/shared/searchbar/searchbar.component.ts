@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ApiService } from 'app/api.service';
 import { AlertServiceService } from 'app/pages/service/alert-service.service';
 import { MapDataService } from 'app/pages/service/map-data.service';
@@ -12,10 +12,10 @@ import { MapDataService } from 'app/pages/service/map-data.service';
 export class SearchbarComponent implements OnInit {
 
 
-  SearchForm = new FormGroup({
-    ModelCode: new FormControl(''),
-    ShipMentDate: new FormControl(''),
-    CPRno: new FormControl('')
+  SearchForm = new UntypedFormGroup({
+    ModelCode: new UntypedFormControl(''),
+    ShipMentDate: new UntypedFormControl(''),
+    CPRno: new UntypedFormControl('')
   })
   get SearchFormControl() { return this.SearchForm.controls }
 

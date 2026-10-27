@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
 import { ToastrService } from 'ngx-toastr';
@@ -23,7 +23,7 @@ export class ScanLabelsQrcodeComponent implements OnInit {
   ScanHistoryShow: any = [];
   LastestLot: any
   LastestSerial: any
-  SubmitValue = new FormControl(null, Validators.required)
+  SubmitValue = new UntypedFormControl(null, Validators.required)
   // Lots: any = []
   // Lot: any;
   QrCodes: any = []

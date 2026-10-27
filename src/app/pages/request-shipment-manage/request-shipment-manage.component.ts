@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'app/api.service';
 import { ToastrService } from 'ngx-toastr';
@@ -25,9 +25,9 @@ export class RequestShipmentManageComponent implements OnInit {
 
   load = false
 
-  ModelCodeSearch = new FormControl(null)
-  ShipMentDateSearch = new FormControl(null)
-  CPRnoSearch = new FormControl(null)
+  ModelCodeSearch = new UntypedFormControl(null)
+  ShipMentDateSearch = new UntypedFormControl(null)
+  CPRnoSearch = new UntypedFormControl(null)
 
   ModelMasterLists: any;
   PatternLabelsAll: any;
@@ -37,61 +37,61 @@ export class RequestShipmentManageComponent implements OnInit {
   MasterShipmentPlace: any;
 
 
-  RequestForm = new FormGroup({
-    _id: new FormControl(null, Validators.required),
-    ShipDate: new FormControl(null, Validators.required),
-    CPRno: new FormControl([], Validators.required),
-    ShipPlace: new FormControl(null, Validators.required),
-    ShipTo: new FormControl(null, Validators.required),
-    User: new FormControl(null),
+  RequestForm = new UntypedFormGroup({
+    _id: new UntypedFormControl(null, Validators.required),
+    ShipDate: new UntypedFormControl(null, Validators.required),
+    CPRno: new UntypedFormControl([], Validators.required),
+    ShipPlace: new UntypedFormControl(null, Validators.required),
+    ShipTo: new UntypedFormControl(null, Validators.required),
+    User: new UntypedFormControl(null),
   })
   get RequestFormControl() { return this.RequestForm.controls }
 
 
 
 
-  ModalEditForm = new FormGroup({
-    Modal_ModelCode: new FormControl(null, Validators.required),
-    Modal_CustomerName: new FormControl('auto'),
-    Modal_CustomerNo: new FormControl('auto'),
-    Modal_Size: new FormControl('auto'),
-    Modal_PartName: new FormControl('auto'),
-    Modal_PatternName: new FormControl('auto'),
+  ModalEditForm = new UntypedFormGroup({
+    Modal_ModelCode: new UntypedFormControl(null, Validators.required),
+    Modal_CustomerName: new UntypedFormControl('auto'),
+    Modal_CustomerNo: new UntypedFormControl('auto'),
+    Modal_Size: new UntypedFormControl('auto'),
+    Modal_PartName: new UntypedFormControl('auto'),
+    Modal_PatternName: new UntypedFormControl('auto'),
   })
   get ModalEditFormControl() { return this.ModalEditForm.controls }
 
-  ModalEditDetailBoxForm = new FormGroup({
-    TotalQty: new FormControl(''),
-    _id: new FormControl(''),
+  ModalEditDetailBoxForm = new UntypedFormGroup({
+    TotalQty: new UntypedFormControl(''),
+    _id: new UntypedFormControl(''),
   })
   get ModalEditDetailBoxFormControl() { return this.ModalEditDetailBoxForm.controls }
 
 
-  ModalEditModelForm = new FormGroup({
-    _id: new FormControl(''),
-    ModelCode: new FormControl(''),
-    Size: new FormControl(''),
-    CustomerName: new FormControl(''),
-    CustomerNo: new FormControl(''),
-    PartName: new FormControl(''),
-    Qty: new FormControl(''),
-    PatternName: new FormControl(''),
-    ModelId: new FormControl(''),
-    MinQty: new FormControl('')
+  ModalEditModelForm = new UntypedFormGroup({
+    _id: new UntypedFormControl(''),
+    ModelCode: new UntypedFormControl(''),
+    Size: new UntypedFormControl(''),
+    CustomerName: new UntypedFormControl(''),
+    CustomerNo: new UntypedFormControl(''),
+    PartName: new UntypedFormControl(''),
+    Qty: new UntypedFormControl(''),
+    PatternName: new UntypedFormControl(''),
+    ModelId: new UntypedFormControl(''),
+    MinQty: new UntypedFormControl('')
 
   })
 
   get ModalEditModelFormControl() { return this.ModalEditModelForm.controls }
 
-  ModalAddNewModelForm = new FormGroup({
-    ModelCode: new FormControl(''),
-    Size: new FormControl(''),
-    CustomerName: new FormControl(''),
-    CustomerNo: new FormControl(''),
-    PartName: new FormControl(''),
-    Qty: new FormControl(''),
-    PatternName: new FormControl(''),
-    ModelId: new FormControl('')
+  ModalAddNewModelForm = new UntypedFormGroup({
+    ModelCode: new UntypedFormControl(''),
+    Size: new UntypedFormControl(''),
+    CustomerName: new UntypedFormControl(''),
+    CustomerNo: new UntypedFormControl(''),
+    PartName: new UntypedFormControl(''),
+    Qty: new UntypedFormControl(''),
+    PatternName: new UntypedFormControl(''),
+    ModelId: new UntypedFormControl('')
 
   })
   get ModalAddNewModelFormControl() { return this.ModalAddNewModelForm.controls }

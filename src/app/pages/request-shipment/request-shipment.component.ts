@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'app/api.service';
@@ -23,22 +23,22 @@ export class RequestShipmentComponent implements OnInit {
 
   ) { }
 
-  ShipmentForm = new FormGroup({
-    ShipDate: new FormControl('', Validators.required),
-    ShipPlace: new FormControl('', Validators.required),
-    ShipTo: new FormControl('', Validators.required),
-    CPRno: new FormControl('', Validators.required),
-    User: new FormControl(`${localStorage.getItem('FirstName')}-${localStorage.getItem('LastName')}`),
-    Status: new FormControl(0)
+  ShipmentForm = new UntypedFormGroup({
+    ShipDate: new UntypedFormControl('', Validators.required),
+    ShipPlace: new UntypedFormControl('', Validators.required),
+    ShipTo: new UntypedFormControl('', Validators.required),
+    CPRno: new UntypedFormControl('', Validators.required),
+    User: new UntypedFormControl(`${localStorage.getItem('FirstName')}-${localStorage.getItem('LastName')}`),
+    Status: new UntypedFormControl(0)
   })
   get ShipmentFormControl() {
     return this.ShipmentForm.controls
   }
 
-  AddBoxForm = new FormGroup({
-    Name: new FormControl(1, Validators.required),
-    TotalQty: new FormControl('', Validators.required),
-    Models: new FormControl([]),
+  AddBoxForm = new UntypedFormGroup({
+    Name: new UntypedFormControl(1, Validators.required),
+    TotalQty: new UntypedFormControl('', Validators.required),
+    Models: new UntypedFormControl([]),
 
   })
   get AddBoxFormControl() {

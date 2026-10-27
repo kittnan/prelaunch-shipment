@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../api.service'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
@@ -17,9 +17,9 @@ export class LoginComponent implements OnInit {
 
   ) { }
 
-  LoginForm = new FormGroup({
-    UserName: new FormControl(null, Validators.required),
-    PassWord: new FormControl(null, Validators.required),
+  LoginForm = new UntypedFormGroup({
+    UserName: new UntypedFormControl(null, Validators.required),
+    PassWord: new UntypedFormControl(null, Validators.required),
 
   })
   User: any;

@@ -178,7 +178,6 @@
             }
         }
     },
-    "defaultProject": "pd-free-angularcli",
     "schematics": {
         "@schematics/angular:component": {
             "prefix": "app",
@@ -190,6 +189,8 @@
     },
     "cli": {
         "analytics": false,
-        "defaultCollection": "@angular-eslint/schematics"
+        "schematicCollections": [
+            "@angular-eslint/schematics"
+        ]
     }
 }

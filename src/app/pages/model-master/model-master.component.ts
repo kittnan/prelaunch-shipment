@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
 import { AlertServiceService } from '../service/alert-service.service';
@@ -22,13 +22,13 @@ export class ModelMasterComponent implements OnInit {
 
   ) { }
 
-  ModelForm = new FormGroup({
-    ModelCode: new FormControl(null, Validators.required),
-    Size: new FormControl(null, Validators.required),
-    CustomerName: new FormControl(null, Validators.required),
-    CustomerNo: new FormControl(null, Validators.required),
-    PartName: new FormControl(null, Validators.required),
-    PatternLabelId: new FormControl(null, Validators.required),
+  ModelForm = new UntypedFormGroup({
+    ModelCode: new UntypedFormControl(null, Validators.required),
+    Size: new UntypedFormControl(null, Validators.required),
+    CustomerName: new UntypedFormControl(null, Validators.required),
+    CustomerNo: new UntypedFormControl(null, Validators.required),
+    PartName: new UntypedFormControl(null, Validators.required),
+    PatternLabelId: new UntypedFormControl(null, Validators.required),
   })
   get ModelCode() { return this.ModelForm.get('ModelCode') }
   get Size() { return this.ModelForm.get('Size') }

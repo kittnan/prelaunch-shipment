@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2';
@@ -26,10 +26,10 @@ export class ScanLabelsComponent implements OnInit {
 
   ResultSearch: any
 
-  SearchForm = new FormGroup({
-    ShipmentDate: new FormControl(null, Validators.required),
-    CPRno: new FormControl(null, Validators.required),
-    ModelCode: new FormControl(null, Validators.required)
+  SearchForm = new UntypedFormGroup({
+    ShipmentDate: new UntypedFormControl(null, Validators.required),
+    CPRno: new UntypedFormControl(null, Validators.required),
+    ModelCode: new UntypedFormControl(null, Validators.required)
   })
 
   RequestShipmentAll: any;

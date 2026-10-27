@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2';
@@ -24,7 +24,7 @@ export class QrcodeScanComponent implements OnInit {
   MapResult: any
 
   // ! form control
-  SubmitForm = new FormControl('', Validators.required)
+  SubmitForm = new UntypedFormControl('', Validators.required)
 
   // ! css Control
   scanInputColor: any = 'scanInputColor'

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2';
@@ -26,23 +26,23 @@ export class UserManageComponent implements OnInit {
   UsersShow: any = []
   tempEventChangeFilter: any;
 
-  AddUserForm = new FormGroup({
-    EmployeeCode: new FormControl('', [Validators.required, Validators.minLength(8)]),
-    FirstName: new FormControl('', Validators.required),
-    LastName: new FormControl('', Validators.required),
-    Password: new FormControl(''),
-    Email: new FormControl('', [Validators.email, Validators.required]),
-    Status: new FormControl('', Validators.required)
+  AddUserForm = new UntypedFormGroup({
+    EmployeeCode: new UntypedFormControl('', [Validators.required, Validators.minLength(8)]),
+    FirstName: new UntypedFormControl('', Validators.required),
+    LastName: new UntypedFormControl('', Validators.required),
+    Password: new UntypedFormControl(''),
+    Email: new UntypedFormControl('', [Validators.email, Validators.required]),
+    Status: new UntypedFormControl('', Validators.required)
   })
 
-  UpdateUserForm = new FormGroup({
-    id: new FormControl(),
-    EmployeeCode: new FormControl('', [Validators.required, Validators.minLength(8)]),
-    FirstName: new FormControl('', Validators.required),
-    LastName: new FormControl('', Validators.required),
-    Password: new FormControl(''),
-    Email: new FormControl('', [Validators.email, Validators.required]),
-    Status: new FormControl('', Validators.required)
+  UpdateUserForm = new UntypedFormGroup({
+    id: new UntypedFormControl(),
+    EmployeeCode: new UntypedFormControl('', [Validators.required, Validators.minLength(8)]),
+    FirstName: new UntypedFormControl('', Validators.required),
+    LastName: new UntypedFormControl('', Validators.required),
+    Password: new UntypedFormControl(''),
+    Email: new UntypedFormControl('', [Validators.email, Validators.required]),
+    Status: new UntypedFormControl('', Validators.required)
   })
 
   get AddUserFormControl() {

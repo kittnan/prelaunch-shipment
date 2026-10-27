@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
 import { AlertServiceService } from '../service/alert-service.service';
@@ -14,9 +14,9 @@ export class ChangePasswordProtectSheetComponent implements OnInit {
 
 
   ToggleEdit: boolean = true;
-  ProtectForm = new FormGroup({
-    PasswordLabel: new FormControl('', [Validators.required]),
-    PasswordSheet: new FormControl('', [Validators.required]),
+  ProtectForm = new UntypedFormGroup({
+    PasswordLabel: new UntypedFormControl('', [Validators.required]),
+    PasswordSheet: new UntypedFormControl('', [Validators.required]),
   })
 
   get ProtectFormControl() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2';
 import { AlertServiceService } from '../service/alert-service.service';
@@ -25,9 +25,9 @@ export class PatternManageComponent implements OnInit {
   MasterPatternList: any
   ModelMaster: any;
   patternGuide = ["CustomerNo", "ModelCode", "Lot", "Serials", "-", "/", ",", ""]
-  PatternName = new FormControl(null, Validators.required)
+  PatternName = new UntypedFormControl(null, Validators.required)
 
-  PatternId = new FormControl(null, Validators.required)
+  PatternId = new UntypedFormControl(null, Validators.required)
 
   // ? toggle
   toggleAddPattern: boolean = false

@@ -37,6 +37,13 @@ label {
     border-bottom: 3px solid black;
 }
 
+/* ng-bootstrap 13+ gives the modal backdrop an inline z-index of 1055 (the Bootstrap 5
+   modal value), while Bootstrap 4 CSS keeps .modal at 1050, so the backdrop covered the
+   modal. Raise the window to the Bootstrap 5 value; it is rendered after the backdrop. */
+ngb-modal-window.modal {
+    z-index: 1055;
+}
+
 @media only screen and (min-width: 600px) {
     * {
         font-size: 8px;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { AuthGuardService } from '../service/auth-guard.service';
 import { MapDataService } from '../service/map-data.service';
@@ -17,10 +17,10 @@ export class LabelReportComponent implements OnInit {
     private auth: AuthGuardService,
 
   ) { }
-  SearchForm = new FormGroup({
-    ShipmentDate: new FormControl(null, Validators.required),
-    CPRno: new FormControl(null, Validators.required),
-    ModelCode: new FormControl(null, Validators.required)
+  SearchForm = new UntypedFormGroup({
+    ShipmentDate: new UntypedFormControl(null, Validators.required),
+    CPRno: new UntypedFormControl(null, Validators.required),
+    ModelCode: new UntypedFormControl(null, Validators.required)
   })
 
   ResultSearch: any
