@@ -6,9 +6,10 @@ import Swal from 'sweetalert2';
 import { AuthGuardService } from '../service/auth-guard.service';
 
 @Component({
-  selector: 'app-user-manage',
-  templateUrl: './user-manage.component.html',
-  styleUrls: ['./user-manage.component.css']
+    selector: 'app-user-manage',
+    templateUrl: './user-manage.component.html',
+    styleUrls: ['./user-manage.component.css'],
+    standalone: false
 })
 export class UserManageComponent implements OnInit {
 

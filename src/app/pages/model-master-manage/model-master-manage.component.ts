@@ -8,9 +8,10 @@ import { AuthGuardService } from '../service/auth-guard.service';
 
 
 @Component({
-  selector: 'app-model-master-manage',
-  templateUrl: './model-master-manage.component.html',
-  styleUrls: ['./model-master-manage.component.css']
+    selector: 'app-model-master-manage',
+    templateUrl: './model-master-manage.component.html',
+    styleUrls: ['./model-master-manage.component.css'],
+    standalone: false
 })
 export class ModelMasterManageComponent implements OnInit {
 

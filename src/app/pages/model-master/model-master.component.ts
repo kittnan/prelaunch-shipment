@@ -7,9 +7,10 @@ import { AlertServiceService } from '../service/alert-service.service';
 import { AuthGuardService } from '../service/auth-guard.service';
 
 @Component({
-  selector: 'app-model-master',
-  templateUrl: './model-master.component.html',
-  styleUrls: ['./model-master.component.css']
+    selector: 'app-model-master',
+    templateUrl: './model-master.component.html',
+    styleUrls: ['./model-master.component.css'],
+    standalone: false
 })
 export class ModelMasterComponent implements OnInit {
 

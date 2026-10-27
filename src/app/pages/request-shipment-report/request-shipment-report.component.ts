@@ -7,9 +7,10 @@ import { GenerateShipmentReportService } from '../service/generate-shipment-repo
 
 
 @Component({
-  selector: 'app-request-shipment-report',
-  templateUrl: './request-shipment-report.component.html',
-  styleUrls: ['./request-shipment-report.component.css']
+    selector: 'app-request-shipment-report',
+    templateUrl: './request-shipment-report.component.html',
+    styleUrls: ['./request-shipment-report.component.css'],
+    standalone: false
 })
 export class RequestShipmentReportComponent implements OnInit {
 

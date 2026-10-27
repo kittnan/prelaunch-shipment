@@ -7,9 +7,10 @@ import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-scan-labels-qrcode',
-  templateUrl: './scan-labels-qrcode.component.html',
-  styleUrls: ['./scan-labels-qrcode.component.css']
+    selector: 'app-scan-labels-qrcode',
+    templateUrl: './scan-labels-qrcode.component.html',
+    styleUrls: ['./scan-labels-qrcode.component.css'],
+    standalone: false
 })
 export class ScanLabelsQrcodeComponent implements OnInit {
 

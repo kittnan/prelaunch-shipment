@@ -8,9 +8,10 @@ import { AuthGuardService } from '../service/auth-guard.service';
 import { MapDataService } from '../service/map-data.service';
 
 @Component({
-  selector: 'app-qrcode-scan',
-  templateUrl: './qrcode-scan.component.html',
-  styleUrls: ['./qrcode-scan.component.css']
+    selector: 'app-qrcode-scan',
+    templateUrl: './qrcode-scan.component.html',
+    styleUrls: ['./qrcode-scan.component.css'],
+    standalone: false
 })
 export class QrcodeScanComponent implements OnInit {
 

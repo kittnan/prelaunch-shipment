@@ -8,9 +8,10 @@ import { AuthGuardService } from '../service/auth-guard.service';
 import { MapDataService } from '../service/map-data.service';
 
 @Component({
-  selector: 'app-scan-labels',
-  templateUrl: './scan-labels.component.html',
-  styleUrls: ['./scan-labels.component.css']
+    selector: 'app-scan-labels',
+    templateUrl: './scan-labels.component.html',
+    styleUrls: ['./scan-labels.component.css'],
+    standalone: false
 })
 export class ScanLabelsComponent implements OnInit {
 

@@ -38,6 +38,7 @@ export const routesAdmin: RouteInfo[] = [
 @Component({
     selector: 'sidebar-cmp',
     templateUrl: 'sidebar.component.html',
+    standalone: false
 })
 
 

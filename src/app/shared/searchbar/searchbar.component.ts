@@ -5,9 +5,10 @@ import { AlertServiceService } from 'app/pages/service/alert-service.service';
 import { MapDataService } from 'app/pages/service/map-data.service';
 
 @Component({
-  selector: 'app-searchbar',
-  templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.css']
+    selector: 'app-searchbar',
+    templateUrl: './searchbar.component.html',
+    styleUrls: ['./searchbar.component.css'],
+    standalone: false
 })
 export class SearchbarComponent implements OnInit {
 

@@ -6,9 +6,10 @@ import { AlertServiceService } from '../service/alert-service.service';
 import { AuthGuardService } from '../service/auth-guard.service';
 
 @Component({
-  selector: 'app-pattern-manage',
-  templateUrl: './pattern-manage.component.html',
-  styleUrls: ['./pattern-manage.component.css']
+    selector: 'app-pattern-manage',
+    templateUrl: './pattern-manage.component.html',
+    styleUrls: ['./pattern-manage.component.css'],
+    standalone: false
 })
 export class PatternManageComponent implements OnInit {
 

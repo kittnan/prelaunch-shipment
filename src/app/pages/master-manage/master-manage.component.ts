@@ -7,9 +7,10 @@ import { AlertServiceService } from '../service/alert-service.service';
 import { AuthGuardService } from '../service/auth-guard.service';
 
 @Component({
-  selector: 'app-master-manage',
-  templateUrl: './master-manage.component.html',
-  styleUrls: ['./master-manage.component.css']
+    selector: 'app-master-manage',
+    templateUrl: './master-manage.component.html',
+    styleUrls: ['./master-manage.component.css'],
+    standalone: false
 })
 export class MasterManageComponent implements OnInit {
 

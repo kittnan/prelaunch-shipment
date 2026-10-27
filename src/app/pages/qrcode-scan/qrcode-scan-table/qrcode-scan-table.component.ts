@@ -4,9 +4,10 @@ import { AlertServiceService } from 'app/pages/service/alert-service.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-qrcode-scan-table',
-  templateUrl: './qrcode-scan-table.component.html',
-  styleUrls: ['./qrcode-scan-table.component.css']
+    selector: 'app-qrcode-scan-table',
+    templateUrl: './qrcode-scan-table.component.html',
+    styleUrls: ['./qrcode-scan-table.component.css'],
+    standalone: false
 })
 export class QrcodeScanTableComponent implements OnInit {
 

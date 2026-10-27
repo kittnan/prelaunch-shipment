@@ -5,9 +5,10 @@ import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import { environment } from 'environments/environment';
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: false
 })
 export class LoginComponent implements OnInit {
 

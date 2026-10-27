@@ -3,9 +3,10 @@ import { GenerateLabelService } from 'app/pages/service/generate-label.service';
 import { MapDataService } from 'app/pages/service/map-data.service';
 
 @Component({
-  selector: 'app-label-report-table',
-  templateUrl: './label-report-table.component.html',
-  styleUrls: ['./label-report-table.component.css']
+    selector: 'app-label-report-table',
+    templateUrl: './label-report-table.component.html',
+    styleUrls: ['./label-report-table.component.css'],
+    standalone: false
 })
 export class LabelReportTableComponent implements OnInit {
 

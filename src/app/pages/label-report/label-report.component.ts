@@ -5,9 +5,10 @@ import { AuthGuardService } from '../service/auth-guard.service';
 import { MapDataService } from '../service/map-data.service';
 
 @Component({
-  selector: 'app-label-report',
-  templateUrl: './label-report.component.html',
-  styleUrls: ['./label-report.component.css']
+    selector: 'app-label-report',
+    templateUrl: './label-report.component.html',
+    styleUrls: ['./label-report.component.css'],
+    standalone: false
 })
 export class LabelReportComponent implements OnInit {
 

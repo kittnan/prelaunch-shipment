@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-scan-label-table',
-  templateUrl: './scan-label-table.component.html',
-  styleUrls: ['./scan-label-table.component.css']
+    selector: 'app-scan-label-table',
+    templateUrl: './scan-label-table.component.html',
+    styleUrls: ['./scan-label-table.component.css'],
+    standalone: false
 })
 export class ScanLabelTableComponent implements OnInit {
 

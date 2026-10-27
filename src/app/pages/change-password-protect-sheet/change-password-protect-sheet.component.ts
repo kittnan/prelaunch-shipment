@@ -6,9 +6,10 @@ import { AlertServiceService } from '../service/alert-service.service';
 import { AuthGuardService } from '../service/auth-guard.service';
 
 @Component({
-  selector: 'app-change-password-protect-sheet',
-  templateUrl: './change-password-protect-sheet.component.html',
-  styleUrls: ['./change-password-protect-sheet.component.css']
+    selector: 'app-change-password-protect-sheet',
+    templateUrl: './change-password-protect-sheet.component.html',
+    styleUrls: ['./change-password-protect-sheet.component.css'],
+    standalone: false
 })
 export class ChangePasswordProtectSheetComponent implements OnInit {
 

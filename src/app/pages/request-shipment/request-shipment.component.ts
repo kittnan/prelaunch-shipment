@@ -8,9 +8,10 @@ import { AlertServiceService } from '../service/alert-service.service';
 import { AuthGuardService } from '../service/auth-guard.service';
 
 @Component({
-  selector: 'app-request-shipment',
-  templateUrl: './request-shipment.component.html',
-  styleUrls: ['./request-shipment.component.css']
+    selector: 'app-request-shipment',
+    templateUrl: './request-shipment.component.html',
+    styleUrls: ['./request-shipment.component.css'],
+    standalone: false
 })
 export class RequestShipmentComponent implements OnInit {
 

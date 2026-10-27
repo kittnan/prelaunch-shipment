@@ -5,7 +5,8 @@ import { Location} from '@angular/common';
 
 @Component({
     selector: 'navbar-cmp',
-    templateUrl: 'navbar.component.html'
+    templateUrl: 'navbar.component.html',
+    standalone: false
 })
 
 export class NavbarComponent implements OnInit{

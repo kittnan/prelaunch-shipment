@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'boxStatus'
+    name: 'boxStatus',
+    standalone: false
 })
 export class BoxStatusPipe implements PipeTransform {
 

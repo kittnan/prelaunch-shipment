@@ -8,9 +8,10 @@ import { AlertServiceService } from '../service/alert-service.service';
 import { AuthGuardService } from '../service/auth-guard.service';
 import { MapDataService } from '../service/map-data.service';
 @Component({
-  selector: 'app-request-shipment-manage',
-  templateUrl: './request-shipment-manage.component.html',
-  styleUrls: ['./request-shipment-manage.component.css']
+    selector: 'app-request-shipment-manage',
+    templateUrl: './request-shipment-manage.component.html',
+    styleUrls: ['./request-shipment-manage.component.css'],
+    standalone: false
 })
 export class RequestShipmentManageComponent implements OnInit {
 
